@@ -1,3 +1,5 @@
+`
+
 # Session 1 – Orientation & Think Like an Engineer
 
 **Week:** 1 – Think Like an Engineer
@@ -256,9 +258,7 @@ Find three websites that you like.
 For each website answer:
 
 1. Why do you like it?
-
 2. What colours do you notice?
-
 3. What would you improve?
 
 Bring your answers to the next session.
@@ -314,7 +314,6 @@ Students should not ask AI to build their project for them.
 ## What went well?
 
 * ---
-
 * ---
 
 ---
@@ -322,7 +321,6 @@ Students should not ask AI to build their project for them.
 ## What students enjoyed most
 
 * ---
-
 * ---
 
 ---
@@ -330,7 +328,6 @@ Students should not ask AI to build their project for them.
 ## What students struggled with
 
 * ---
-
 * ---
 
 ---
@@ -338,7 +335,6 @@ Students should not ask AI to build their project for them.
 ## Improvements for next time
 
 * ---
-
 * ---
 
 ---
