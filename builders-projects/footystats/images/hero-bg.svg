@@ -1,0 +1,44 @@
+<!--
+  FILE: hero-bg.svg
+  WHY: The Hero section needs an eye-catching background that fits the
+       "modern football analytics" theme. Instead of downloading a photo
+       from the internet, we DRAW one ourselves using SVG (Scalable Vector
+       Graphics). SVG images are just XML code made of shapes -- no camera
+       or internet connection needed!
+  WHAT: A simple stylised football pitch: a dark green background, white
+        pitch markings (halfway line, centre circle) and a soft gold glow.
+  HOW: <rect> draws rectangles, <circle> draws circles, <line> draws
+       straight lines. Numbers like "x" and "y" are just coordinates,
+       the same way you'd plot a point on a graph in maths class.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="35%" r="75%">
+      <stop offset="0%" stop-color="#1f6b3a" />
+      <stop offset="60%" stop-color="#0b3d24" />
+      <stop offset="100%" stop-color="#04170e" />
+    </radialGradient>
+  </defs>
+
+  <!-- Background pitch colour -->
+  <rect x="0" y="0" width="1600" height="900" fill="url(#glow)" />
+
+  <!-- Outer pitch boundary line -->
+  <rect x="80" y="80" width="1440" height="740" fill="none" stroke="#ffffff" stroke-opacity="0.15" stroke-width="4" />
+
+  <!-- Halfway line -->
+  <line x1="800" y1="80" x2="800" y2="820" stroke="#ffffff" stroke-opacity="0.15" stroke-width="4" />
+
+  <!-- Centre circle -->
+  <circle cx="800" cy="450" r="140" fill="none" stroke="#ffffff" stroke-opacity="0.15" stroke-width="4" />
+  <circle cx="800" cy="450" r="6" fill="#ffffff" fill-opacity="0.2" />
+
+  <!-- Gold accent glow behind the headline text -->
+  <circle cx="800" cy="420" r="360" fill="#ffd700" fill-opacity="0.06" />
+
+  <!-- A few scattered "spotlight" dots for a stadium-lights feel -->
+  <circle cx="200" cy="150" r="3" fill="#ffd700" fill-opacity="0.4" />
+  <circle cx="1400" cy="180" r="3" fill="#ffd700" fill-opacity="0.4" />
+  <circle cx="1500" cy="700" r="3" fill="#ffd700" fill-opacity="0.4" />
+  <circle cx="120" cy="720" r="3" fill="#ffd700" fill-opacity="0.4" />
+</svg>

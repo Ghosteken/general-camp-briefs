@@ -1,0 +1,36 @@
+<!--
+  FILE: gallery-2.svg
+  WHY: A second gallery scene, showing the variety of maps in the game.
+  WHAT: "The Sky Bridges" - floating orange platforms connected by a
+       path, set against a bright sky-blue daytime gradient with clouds.
+  HOW: A <linearGradient> paints the sky. Clouds are just three
+       overlapping <circle> shapes each. Platforms are simple <rect>
+       shapes joined by a straight <line> path.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Screenshot placeholder: The Sky Bridges">
+  <defs>
+    <linearGradient id="sky2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#4fc3f7" />
+      <stop offset="100%" stop-color="#0b1b33" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#sky2)" />
+
+  <!-- Clouds (three circles grouped together) -->
+  <g fill="#eaf2fb" opacity="0.85">
+    <circle cx="150" cy="100" r="26" />
+    <circle cx="180" cy="90" r="34" />
+    <circle cx="215" cy="105" r="24" />
+  </g>
+  <g fill="#eaf2fb" opacity="0.7">
+    <circle cx="560" cy="150" r="22" />
+    <circle cx="588" cy="142" r="28" />
+    <circle cx="618" cy="152" r="20" />
+  </g>
+
+  <!-- Floating platforms connected by a path -->
+  <line x1="120" y1="330" x2="700" y2="230" stroke="#ffffff" stroke-width="4" stroke-dasharray="10 10" opacity="0.6" />
+  <rect x="90" y="320" width="120" height="22" rx="10" fill="#ff7a29" />
+  <rect x="330" y="290" width="120" height="22" rx="10" fill="#ff7a29" />
+  <rect x="590" y="220" width="120" height="22" rx="10" fill="#ff7a29" />
+</svg>

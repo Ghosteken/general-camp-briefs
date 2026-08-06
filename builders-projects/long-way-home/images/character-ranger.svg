@@ -1,0 +1,29 @@
+<!--
+  FILE: character-ranger.svg
+  WHY: A second playable hero, drawn the same simple way as Milo so
+       students can compare the two files and spot the pattern.
+  WHAT: Ruby the Ranger - an orange themed hero whose ability icon is a
+       footprint, because Rangers can walk further before getting tired.
+  HOW: Same shape recipe as character-scout.svg, just with different
+       colours and a footprint made from two overlapping ellipses.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" role="img" aria-label="Ruby the Ranger character artwork">
+  <rect width="300" height="300" rx="24" fill="#0b1b33" />
+  <circle cx="150" cy="120" r="90" fill="#ff7a29" opacity="0.22" />
+
+  <!-- Hood / cloak -->
+  <polygon points="150,48 214,142 86,142" fill="#e2611a" />
+
+  <!-- Face -->
+  <circle cx="150" cy="152" r="46" fill="#eaf2fb" />
+  <circle cx="131" cy="148" r="6" fill="#0b1b33" />
+  <circle cx="169" cy="148" r="6" fill="#0b1b33" />
+  <path d="M133,172 Q150,184 167,172" stroke="#0b1b33" stroke-width="4" fill="none" stroke-linecap="round" />
+
+  <!-- Ability icon: a footprint, top-right corner -->
+  <ellipse cx="234" cy="50" rx="9" ry="12" fill="#ff7a29" />
+  <ellipse cx="244" cy="68" rx="11" ry="15" fill="#ff7a29" />
+
+  <text x="150" y="248" font-family="Arial, sans-serif" font-size="26" font-weight="bold" text-anchor="middle" fill="#ffffff">RUBY</text>
+  <text x="150" y="273" font-family="Arial, sans-serif" font-size="15" letter-spacing="2" text-anchor="middle" fill="#ff7a29">THE RANGER</text>
+</svg>

@@ -1,0 +1,10 @@
+<!-- Placeholder gallery photo: "Fan Zone" -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <rect width="400" height="300" fill="#04170e" />
+  <circle cx="90" cy="200" r="18" fill="#ffd700" />
+  <circle cx="150" cy="180" r="18" fill="#ffffff" />
+  <circle cx="210" cy="205" r="18" fill="#ffd700" />
+  <circle cx="270" cy="185" r="18" fill="#ffffff" />
+  <circle cx="330" cy="200" r="18" fill="#ffd700" />
+  <text x="200" y="250" font-family="Arial, sans-serif" font-size="22" fill="#ffffff" text-anchor="middle">Fan Zone</text>
+</svg>

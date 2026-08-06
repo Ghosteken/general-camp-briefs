@@ -1,0 +1,8 @@
+<!-- Placeholder gallery photo: "Match Day" -- simple shapes standing in for a real photo. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <rect width="400" height="300" fill="#0b3d24" />
+  <rect x="0" y="230" width="400" height="70" fill="#0f4d2d" />
+  <circle cx="200" cy="150" r="45" fill="#ffffff" fill-opacity="0.9" />
+  <circle cx="200" cy="150" r="45" fill="none" stroke="#111111" stroke-width="3" />
+  <text x="200" y="270" font-family="Arial, sans-serif" font-size="22" fill="#ffd700" text-anchor="middle">Match Day</text>
+</svg>

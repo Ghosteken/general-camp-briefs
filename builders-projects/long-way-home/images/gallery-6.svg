@@ -1,0 +1,36 @@
+<!--
+  FILE: gallery-6.svg
+  WHY: The sixth and final gallery scene, saved as the "big finish" map.
+  WHAT: "The Longest Bridge" - a long wooden-style bridge stretching
+       across a dark chasm at sunset, the classic risky detour.
+  HOW: The bridge deck is one long <rect>. Evenly spaced <rect> piers
+       underneath are drawn with a simple loop-like repeated pattern.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Screenshot placeholder: The Longest Bridge">
+  <defs>
+    <radialGradient id="sunset6" cx="50%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#ffd9b8" />
+      <stop offset="50%" stop-color="#ff7a29" stop-opacity="0.55" />
+      <stop offset="100%" stop-color="#0b1b33" />
+    </radialGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#sunset6)" />
+
+  <!-- Setting sun -->
+  <circle cx="400" cy="150" r="50" fill="#ffe8d1" />
+
+  <!-- The chasm -->
+  <rect x="0" y="330" width="800" height="170" fill="#060f1f" />
+
+  <!-- Bridge piers -->
+  <rect x="120" y="330" width="16" height="120" fill="#142a4d" />
+  <rect x="320" y="330" width="16" height="120" fill="#142a4d" />
+  <rect x="520" y="330" width="16" height="120" fill="#142a4d" />
+  <rect x="680" y="330" width="16" height="120" fill="#142a4d" />
+
+  <!-- Bridge deck and rails -->
+  <rect x="60" y="320" width="700" height="18" fill="#eaf2fb" />
+  <line x1="60" y1="308" x2="760" y2="308" stroke="#eaf2fb" stroke-width="5" opacity="0.7" />
+  <line x1="60" y1="308" x2="60" y2="338" stroke="#eaf2fb" stroke-width="5" opacity="0.7" />
+  <line x1="760" y1="308" x2="760" y2="338" stroke="#eaf2fb" stroke-width="5" opacity="0.7" />
+</svg>

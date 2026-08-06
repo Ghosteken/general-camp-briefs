@@ -1,0 +1,1081 @@
+/*
+  FILE: style.css
+  WHY:  This file controls how the page LOOKS (colours, spacing, fonts,
+        layout). The HTML file only holds the CONTENT and STRUCTURE -
+        keeping style separate makes both files easier to read and change.
+  WHAT: Every section of the page gets its own clearly-labelled block of
+        rules below, in the same order the sections appear in index.html.
+  HOW:  We write "mobile-first" CSS. That means the plain rules (outside
+        any @media block) are designed for a small phone screen first.
+        Then, near the bottom, @media rules ADD extra styling once the
+        screen gets wider (tablet, then desktop). This is easier than
+        designing for desktop and then trying to squeeze everything onto
+        a phone afterwards.
+*/
+
+/* ======================================================================
+   1. DESIGN TOKENS (CSS VARIABLES)
+   WHY: Instead of typing a colour code like #ff7a29 everywhere, we give
+        it a name once here. If we ever want to change the game's orange,
+        we only change it in ONE place instead of hunting through the
+        whole file.
+   ====================================================================== */
+:root {
+  /* Brand colours: dark navy, orange, sky blue, white (from the brief) */
+  --color-navy-deepest: #060f1f;
+  --color-navy: #0b1b33;
+  --color-navy-light: #142a4d;
+  --color-orange: #ff7a29;
+  --color-orange-dark: #e2611a;
+  --color-sky: #4fc3f7;
+  --color-sky-dark: #29a8e0;
+  --color-white: #ffffff;
+  --color-off-white: #eaf2fb;
+  --color-text-muted: #a9bdd6;
+
+  /* Spacing scale: reused so gaps/padding stay consistent everywhere */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+  --space-xl: 4rem;
+
+  /* Shared shape + motion values */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 28px;
+  --shadow-card: 0 12px 30px rgba(6, 15, 31, 0.45);
+  --transition-fast: 0.2s ease;
+  --transition-medium: 0.4s ease;
+
+  /* Font stacks: "system fonts" already installed on the visitor's
+     computer/phone, so the page never needs to download a font file. */
+  --font-heading: "Segoe UI", "Trebuchet MS", Verdana, sans-serif;
+  --font-body: "Segoe UI", Tahoma, Geneva, sans-serif;
+
+  /* Width the page content should never grow wider than */
+  --max-width: 1200px;
+}
+
+/* ======================================================================
+   2. RESET / BASE STYLES
+   WHY: Every browser has slightly different default spacing on things
+        like headings and lists. We reset those defaults so our design
+        looks the same everywhere.
+   ====================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* padding/border no longer make boxes bigger */
+}
+
+html {
+  scroll-behavior: smooth; /* clicking a nav link glides down instead of jumping */
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-navy);
+  color: var(--color-off-white);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  line-height: 1.2;
+  color: var(--color-white);
+}
+
+a {
+  color: var(--color-sky);
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+}
+
+/* Lets keyboard users see exactly which element is focused */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--color-sky);
+  outline-offset: 3px;
+}
+
+/* Hidden visually but still read aloud by screen readers - used for the
+   "skip to main content" link, which only appears when a keyboard user
+   tabs onto it. */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--color-orange);
+  color: var(--color-navy);
+  padding: var(--space-xs) var(--space-sm);
+  z-index: 100;
+  font-weight: bold;
+  border-radius: var(--radius-sm);
+}
+
+.skip-link:focus {
+  left: var(--space-sm);
+  top: var(--space-sm);
+}
+
+/* ======================================================================
+   3. LAYOUT HELPERS
+   WHY: Almost every section needs its content centred with the same
+        maximum width and side padding, so we make one reusable class
+        instead of repeating the same three lines in every section.
+   ====================================================================== */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+.section {
+  padding: var(--space-xl) 0;
+}
+
+.section--alt {
+  background-color: var(--color-navy-light);
+}
+
+.section-heading {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto var(--space-lg);
+}
+
+.section-heading__eyebrow {
+  display: inline-block;
+  color: var(--color-orange);
+  font-weight: bold;
+  letter-spacing: 2px;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  margin-bottom: var(--space-xs);
+}
+
+.section-heading h2 {
+  font-size: 1.9rem;
+  margin-bottom: var(--space-sm);
+}
+
+.section-heading p {
+  color: var(--color-text-muted);
+}
+
+/* ======================================================================
+   4. REUSABLE BUTTONS + BADGES
+   ====================================================================== */
+.btn {
+  display: inline-block;
+  padding: 0.85rem 1.6rem;
+  border-radius: var(--radius-sm);
+  font-weight: bold;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.btn:hover,
+.btn:focus-visible {
+  transform: translateY(-2px);
+}
+
+.btn--primary {
+  background-color: var(--color-orange);
+  color: var(--color-navy-deepest);
+}
+
+.btn--primary:hover {
+  background-color: var(--color-orange-dark);
+  box-shadow: 0 10px 20px rgba(255, 122, 41, 0.35);
+}
+
+.btn--secondary {
+  background-color: transparent;
+  color: var(--color-white);
+  border: 2px solid var(--color-sky);
+}
+
+.btn--secondary:hover {
+  background-color: rgba(79, 195, 247, 0.15);
+}
+
+.btn--block {
+  width: 100%;
+  text-align: center;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.badge--live {
+  background-color: rgba(255, 122, 41, 0.2);
+  color: var(--color-orange);
+}
+
+.badge--soon {
+  background-color: rgba(79, 195, 247, 0.18);
+  color: var(--color-sky);
+}
+
+.badge--planned {
+  background-color: rgba(234, 242, 251, 0.12);
+  color: var(--color-off-white);
+}
+
+/* ======================================================================
+   5. SITE HEADER + NAVIGATION
+   WHY: The header sticks to the top of the screen so players can always
+        get back to the menu, no matter how far they scroll.
+   ====================================================================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: rgba(6, 15, 31, 0.92);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-sm) var(--space-md);
+}
+
+.nav__brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  color: var(--color-white);
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.nav__brand img {
+  width: 36px;
+  height: 36px;
+}
+
+/* The hamburger button: only visible on small screens (see media query) */
+.nav__toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+}
+
+.nav__toggle-bar {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: var(--color-white);
+  border-radius: 2px;
+  transition: transform var(--transition-fast), opacity var(--transition-fast);
+}
+
+/* When JavaScript adds "is-open" to the nav, we turn the three bars
+   into an "X" shape using rotation and by hiding the middle bar. */
+.nav__toggle[aria-expanded="true"] .nav__toggle-bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.nav__toggle[aria-expanded="true"] .nav__toggle-bar:nth-child(2) {
+  opacity: 0;
+}
+.nav__toggle[aria-expanded="true"] .nav__toggle-bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+.nav__menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: var(--color-navy-deepest);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  flex-direction: column;
+  padding: var(--space-sm) var(--space-md) var(--space-md);
+  gap: var(--space-sm);
+  display: none;
+}
+
+/* JavaScript toggles this class open/closed on small screens */
+.nav__menu.is-open {
+  display: flex;
+}
+
+.nav__menu a {
+  display: block;
+  color: var(--color-off-white);
+  padding: var(--space-xs) 0;
+  font-weight: 600;
+}
+
+.nav__menu a:hover {
+  color: var(--color-orange);
+}
+
+.nav__cta {
+  margin-top: var(--space-xs);
+}
+
+/* ======================================================================
+   6. HERO SECTION
+   ====================================================================== */
+.hero {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--color-navy-deepest);
+}
+
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.55;
+  z-index: 0;
+}
+
+.hero__inner {
+  position: relative;
+  z-index: 1;
+  padding: var(--space-xl) var(--space-md);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.hero__eyebrow {
+  color: var(--color-sky);
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+.hero h1 {
+  font-size: 2.2rem;
+  max-width: 720px;
+}
+
+.hero h1 span {
+  color: var(--color-orange);
+}
+
+.hero p {
+  max-width: 560px;
+  color: var(--color-off-white);
+  font-size: 1.05rem;
+}
+
+.hero__actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  width: 100%;
+  max-width: 320px;
+}
+
+/* --- Animated stats strip inside the hero --- */
+.stats {
+  width: 100%;
+  max-width: 900px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+}
+
+.stat {
+  background-color: rgba(20, 42, 77, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+  padding: var(--space-md) var(--space-sm);
+  text-align: center;
+}
+
+.stat__number {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--color-orange);
+}
+
+.stat__label {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin-top: var(--space-xs);
+}
+
+/* ======================================================================
+   7. STORY SECTION
+   ====================================================================== */
+.story__grid {
+  display: grid;
+  gap: var(--space-lg);
+  align-items: center;
+}
+
+.story__art {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+.story__text p {
+  color: var(--color-off-white);
+  margin-bottom: var(--space-sm);
+}
+
+.story__text p:last-child {
+  margin-bottom: 0;
+}
+
+/* ======================================================================
+   8. CHARACTERS SECTION
+   ====================================================================== */
+.character-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
+}
+
+.character-card {
+  background-color: var(--color-navy-light);
+  border: 2px solid transparent;
+  border-radius: var(--radius-md);
+  padding: var(--space-sm);
+  text-align: center;
+  transition: transform var(--transition-fast), border-color var(--transition-fast);
+  color: var(--color-off-white);
+  width: 100%;
+}
+
+.character-card img {
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--space-xs);
+}
+
+.character-card__name {
+  display: block;
+  font-weight: bold;
+  color: var(--color-white);
+}
+
+.character-card__role {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--color-sky);
+  letter-spacing: 1px;
+}
+
+.character-card:hover {
+  transform: translateY(-4px);
+}
+
+/* JavaScript adds "is-selected" to whichever card the player picked */
+.character-card.is-selected {
+  border-color: var(--color-orange);
+  box-shadow: var(--shadow-card);
+}
+
+.character-detail {
+  margin-top: var(--space-lg);
+  background-color: var(--color-navy-light);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  border-left: 4px solid var(--color-orange);
+}
+
+.character-detail h3 {
+  margin-bottom: var(--space-xs);
+  color: var(--color-orange);
+}
+
+.character-detail p + p {
+  margin-top: var(--space-xs);
+}
+
+/* ======================================================================
+   9. GAMEPLAY SECTION
+   ====================================================================== */
+.gameplay__grid {
+  display: grid;
+  gap: var(--space-lg);
+}
+
+.rules-list li {
+  display: flex;
+  gap: var(--space-sm);
+  padding: var(--space-sm) 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--color-off-white);
+}
+
+.rules-list li:last-child {
+  border-bottom: none;
+}
+
+.rules-list__number {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--color-orange);
+  color: var(--color-navy-deepest);
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.widget-card {
+  background-color: var(--color-navy-light);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  box-shadow: var(--shadow-card);
+}
+
+.widget-card h3 {
+  margin-bottom: var(--space-xs);
+}
+
+.widget-card p.widget-hint {
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-sm);
+  font-size: 0.9rem;
+}
+
+/* --- Random route generator output --- */
+.route-output {
+  margin-top: var(--space-sm);
+  background-color: var(--color-navy-deepest);
+  border-radius: var(--radius-sm);
+  padding: var(--space-sm);
+  min-height: 3rem;
+}
+
+.route-output dl {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-xs) var(--space-sm);
+}
+
+.route-output dt {
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+}
+
+.route-output dd {
+  color: var(--color-white);
+  font-weight: 600;
+}
+
+.route-output .route-placeholder {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+/* --- Game tips widget --- */
+.tip-box {
+  margin-top: var(--space-sm);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  background-color: var(--color-navy-deepest);
+  border-radius: var(--radius-sm);
+  padding: var(--space-sm);
+}
+
+.tip-box__icon {
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+
+.tip-box__text {
+  flex-grow: 1;
+  font-size: 0.95rem;
+}
+
+/* ======================================================================
+   10. AI PATHFINDING SECTION (mini interactive map)
+   ====================================================================== */
+.map-widget {
+  display: grid;
+  gap: var(--space-md);
+}
+
+.map-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 4px;
+  background-color: var(--color-navy-deepest);
+  padding: var(--space-xs);
+  border-radius: var(--radius-md);
+}
+
+.map-tile {
+  aspect-ratio: 1 / 1;
+  background-color: var(--color-navy-light);
+  border-radius: 4px;
+  font-size: 0.6rem;
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.map-tile:not(:disabled):hover {
+  background-color: rgba(79, 195, 247, 0.25);
+}
+
+.map-tile.is-start,
+.map-tile.is-home {
+  background-color: var(--color-navy);
+  color: var(--color-white);
+  font-weight: bold;
+}
+
+.map-tile.is-selected {
+  background-color: var(--color-orange);
+  color: var(--color-navy-deepest);
+  font-weight: bold;
+  transform: scale(1.05);
+}
+
+.map-tile.is-ai-suggested {
+  background-color: var(--color-sky);
+  color: var(--color-navy-deepest);
+  font-weight: bold;
+}
+
+.map-widget__controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.map-score {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--color-orange);
+}
+
+.map-widget__message {
+  min-height: 1.4rem;
+  color: var(--color-sky);
+  font-size: 0.9rem;
+}
+
+/* ======================================================================
+   11. GALLERY SECTION
+   ====================================================================== */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+}
+
+.gallery-grid figure {
+  margin: 0;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background-color: var(--color-navy-light);
+  box-shadow: var(--shadow-card);
+}
+
+.gallery-grid img {
+  width: 100%;
+  aspect-ratio: 8 / 5;
+  object-fit: cover;
+}
+
+.gallery-grid figcaption {
+  padding: var(--space-sm);
+  font-size: 0.9rem;
+  color: var(--color-off-white);
+}
+
+/* ======================================================================
+   12. ROADMAP SECTION (vertical timeline)
+   ====================================================================== */
+.roadmap-timeline {
+  position: relative;
+  padding-left: var(--space-md);
+  border-left: 2px solid rgba(255, 255, 255, 0.15);
+}
+
+.roadmap-item {
+  position: relative;
+  padding-bottom: var(--space-lg);
+}
+
+.roadmap-item:last-child {
+  padding-bottom: 0;
+}
+
+.roadmap-item::before {
+  content: "";
+  position: absolute;
+  left: calc(-1 * var(--space-md) - 6px);
+  top: 4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--color-orange);
+  border: 2px solid var(--color-navy);
+}
+
+.roadmap-item h3 {
+  margin-bottom: var(--space-xs);
+  font-size: 1.1rem;
+}
+
+.roadmap-item p {
+  color: var(--color-text-muted);
+  margin-top: var(--space-xs);
+}
+
+/* ======================================================================
+   13. FAQ SECTION (accordion)
+   ====================================================================== */
+.accordion-item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.accordion-trigger {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-sm);
+  background: transparent;
+  color: var(--color-white);
+  text-align: left;
+  padding: var(--space-sm) 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.accordion-icon {
+  flex-shrink: 0;
+  font-size: 1.4rem;
+  color: var(--color-orange);
+  transition: transform var(--transition-fast);
+}
+
+/* When the button says aria-expanded="true", JS also flips this icon
+   into an "x" rotation so it visually matches the open panel. */
+.accordion-trigger[aria-expanded="true"] .accordion-icon {
+  transform: rotate(45deg);
+}
+
+.accordion-panel {
+  padding-bottom: var(--space-sm);
+  color: var(--color-text-muted);
+}
+
+/* ======================================================================
+   14. CONTACT SECTION
+   ====================================================================== */
+.contact__grid {
+  display: grid;
+  gap: var(--space-lg);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  background-color: var(--color-navy-light);
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-field label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-off-white);
+}
+
+.form-field input,
+.form-field textarea {
+  background-color: var(--color-navy-deepest);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-sm);
+  padding: 0.7rem 0.9rem;
+  color: var(--color-white);
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+
+.form-field textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+  border-color: var(--color-sky);
+}
+
+.form-status {
+  min-height: 1.4rem;
+  font-weight: 600;
+  color: var(--color-sky);
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.contact-info__item {
+  background-color: var(--color-navy-light);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+}
+
+.contact-info__item h3 {
+  font-size: 1rem;
+  color: var(--color-sky);
+  margin-bottom: var(--space-xs);
+}
+
+/* ======================================================================
+   15. SITE FOOTER
+   ====================================================================== */
+.site-footer {
+  background-color: var(--color-navy-deepest);
+  padding: var(--space-xl) 0 var(--space-md);
+}
+
+.footer__grid {
+  display: grid;
+  gap: var(--space-lg);
+}
+
+.footer__brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  color: var(--color-white);
+  font-weight: bold;
+  margin-bottom: var(--space-xs);
+}
+
+.footer__brand img {
+  width: 32px;
+  height: 32px;
+}
+
+.footer__tagline {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  max-width: 320px;
+}
+
+.footer__social {
+  display: flex;
+  gap: var(--space-sm);
+  margin-top: var(--space-sm);
+}
+
+.footer__social a {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.08);
+  transition: background-color var(--transition-fast);
+}
+
+.footer__social a:hover {
+  background-color: var(--color-orange);
+}
+
+.footer__social svg {
+  width: 18px;
+  height: 18px;
+  fill: var(--color-white);
+}
+
+.footer__col h3 {
+  font-size: 0.95rem;
+  color: var(--color-white);
+  margin-bottom: var(--space-sm);
+}
+
+.footer__col ul li {
+  margin-bottom: var(--space-xs);
+}
+
+.footer__col a {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+.footer__col a:hover {
+  color: var(--color-orange);
+}
+
+.footer__bottom {
+  margin-top: var(--space-lg);
+  padding-top: var(--space-md);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+}
+
+/* ======================================================================
+   16. RESPONSIVE LAYOUT - TABLET AND UP
+   WHY: Once there's more horizontal space, we can show things side by
+        side instead of stacked, so the page feels less "empty".
+   ====================================================================== */
+@media (min-width: 600px) {
+  .hero__actions {
+    flex-direction: row;
+    max-width: none;
+  }
+
+  .stats {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .character-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ======================================================================
+   17. RESPONSIVE LAYOUT - DESKTOP AND UP
+   ====================================================================== */
+@media (min-width: 900px) {
+  .nav__toggle {
+    display: none; /* no hamburger needed once the full menu fits */
+  }
+
+  .nav__menu {
+    position: static;
+    flex-direction: row;
+    align-items: center;
+    background: transparent;
+    border-bottom: none;
+    padding: 0;
+    display: flex;
+    width: auto;
+  }
+
+  .nav__menu a {
+    padding: var(--space-xs) var(--space-sm);
+  }
+
+  .nav__cta {
+    margin-top: 0;
+    margin-left: var(--space-sm);
+  }
+
+  .hero__inner {
+    padding: 6rem var(--space-md);
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+  }
+
+  .story__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .story__grid.story__grid--reverse .story__art {
+    order: 2;
+  }
+
+  .character-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .gameplay__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .contact__grid {
+    grid-template-columns: 2fr 1fr;
+  }
+
+  .footer__grid {
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+  }
+}
+
+/* ======================================================================
+   18. REDUCED MOTION
+   WHY: Some visitors get dizzy or uncomfortable from animation. This
+        media query respects that operating-system setting and removes
+        our smooth-scrolling and transform animations for them.
+   ====================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  * {
+    transition-duration: 0.01ms !important;
+  }
+}

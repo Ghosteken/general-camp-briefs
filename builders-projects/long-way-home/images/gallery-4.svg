@@ -1,0 +1,42 @@
+<!--
+  FILE: gallery-4.svg
+  WHY: A fourth gallery scene, showing a village map where players must
+       choose between several possible routes.
+  WHAT: "Village Crossroads" - a handful of simple houses with several
+       straight paths branching out from a central crossroads.
+  HOW: Each house is a <rect> body with a triangular <polygon> roof.
+       The crossroads is drawn with a few straight <line> elements.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Screenshot placeholder: Village Crossroads">
+  <rect width="800" height="500" fill="#0b1b33" />
+
+  <!-- Crossroads: several straight paths meeting in the middle -->
+  <g stroke="#eaf2fb" stroke-width="6" stroke-opacity="0.35" stroke-dasharray="12 10">
+    <line x1="400" y1="250" x2="80" y2="120" />
+    <line x1="400" y1="250" x2="720" y2="100" />
+    <line x1="400" y1="250" x2="120" y2="440" />
+    <line x1="400" y1="250" x2="680" y2="430" />
+  </g>
+
+  <!-- Houses scattered around the crossroads -->
+  <g>
+    <rect x="60" y="130" width="70" height="55" fill="#eaf2fb" />
+    <polygon points="55,130 95,95 135,130" fill="#ff7a29" />
+  </g>
+  <g>
+    <rect x="670" y="110" width="70" height="55" fill="#eaf2fb" />
+    <polygon points="665,110 705,75 745,110" fill="#4fc3f7" />
+  </g>
+  <g>
+    <rect x="90" y="400" width="70" height="55" fill="#eaf2fb" />
+    <polygon points="85,400 125,365 165,400" fill="#4fc3f7" />
+  </g>
+  <g>
+    <rect x="630" y="380" width="70" height="55" fill="#eaf2fb" />
+    <polygon points="625,380 665,345 705,380" fill="#ff7a29" />
+  </g>
+
+  <!-- A pair of lantern glows near the crossroads -->
+  <circle cx="400" cy="250" r="10" fill="#ff7a29" />
+  <circle cx="400" cy="250" r="22" fill="#ff7a29" opacity="0.25" />
+</svg>

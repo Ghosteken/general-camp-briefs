@@ -1,0 +1,18 @@
+<!--
+  FILE: favicon.svg
+  WHY: Browsers show a tiny icon in the tab for every website. We draw our
+       own compass icon instead of downloading one, so the whole project
+       still works with no internet connection.
+  WHAT: A simple compass rose (the star shape you see on old maps) sitting
+        inside a dark navy circle.
+  HOW: <circle> draws the outer badge. Two <polygon> shapes (each one is
+       just a list of x,y points connected by straight lines) make the
+       north-south and east-west needles. A small white <circle> in the
+       middle is the pivot pin.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Compass icon for The Long Way Home">
+  <circle cx="32" cy="32" r="30" fill="#0b1b33" stroke="#ff7a29" stroke-width="3" />
+  <polygon points="32,8 38,32 32,56 26,32" fill="#4fc3f7" />
+  <polygon points="8,32 32,26 56,32 32,38" fill="#ff7a29" />
+  <circle cx="32" cy="32" r="5" fill="#ffffff" />
+</svg>

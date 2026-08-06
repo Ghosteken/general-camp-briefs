@@ -1,0 +1,29 @@
+<!--
+  FILE: character-nomad.svg
+  WHY: A third playable hero, keeping the same drawing recipe so the
+       pattern (colour + icon = new character) is obvious to students.
+  WHAT: Sable the Nomad - a cool, pale themed night-traveller whose
+       ability icon is a star, because Nomads never lose their way.
+  HOW: Same shapes as the other characters, but with softer, cooler
+       colours and a five-point star built from one <polygon>.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" role="img" aria-label="Sable the Nomad character artwork">
+  <rect width="300" height="300" rx="24" fill="#0b1b33" />
+  <circle cx="150" cy="120" r="90" fill="#eaf2fb" opacity="0.15" />
+
+  <!-- Hood / cloak -->
+  <polygon points="150,48 214,142 86,142" fill="#142a4d" />
+
+  <!-- Face -->
+  <circle cx="150" cy="152" r="46" fill="#eaf2fb" />
+  <circle cx="131" cy="148" r="6" fill="#0b1b33" />
+  <circle cx="169" cy="148" r="6" fill="#0b1b33" />
+  <path d="M133,172 Q150,184 167,172" stroke="#0b1b33" stroke-width="4" fill="none" stroke-linecap="round" />
+
+  <!-- Ability icon: a star, top-right corner -->
+  <polygon points="238,38 244,54 261,54 247,64 252,80 238,70 224,80 229,64 215,54 232,54"
+            fill="#eaf2fb" />
+
+  <text x="150" y="248" font-family="Arial, sans-serif" font-size="26" font-weight="bold" text-anchor="middle" fill="#ffffff">SABLE</text>
+  <text x="150" y="273" font-family="Arial, sans-serif" font-size="15" letter-spacing="2" text-anchor="middle" fill="#eaf2fb">THE NOMAD</text>
+</svg>

@@ -1,0 +1,9 @@
+<!-- Placeholder gallery photo: "Training Ground" -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <rect width="400" height="300" fill="#0f4d2d" />
+  <line x1="0" y1="150" x2="400" y2="150" stroke="#ffffff" stroke-opacity="0.3" stroke-width="4" />
+  <circle cx="120" cy="150" r="10" fill="#ffffff" />
+  <circle cx="200" cy="150" r="10" fill="#ffffff" />
+  <circle cx="280" cy="150" r="10" fill="#ffffff" />
+  <text x="200" y="250" font-family="Arial, sans-serif" font-size="22" fill="#ffd700" text-anchor="middle">Training Ground</text>
+</svg>

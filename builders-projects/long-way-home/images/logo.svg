@@ -1,0 +1,26 @@
+<!--
+  FILE: logo.svg
+  WHY: The navigation bar and footer need a small brand mark. Drawing it
+       as SVG code means it stays perfectly sharp at any size and never
+       needs to be downloaded from the internet.
+  WHAT: A bigger, more detailed version of our compass icon, with tick
+        marks at North, East, South and West like a real compass face.
+  HOW: The outer <circle> is the compass body. Four thin <rect> shapes
+       are the tick marks. Two <polygon> shapes cross in the middle to
+       form the needle, and a white <circle> is the centre pin.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="The Long Way Home compass logo">
+  <circle cx="50" cy="50" r="46" fill="#0b1b33" stroke="#4fc3f7" stroke-width="3" />
+  <circle cx="50" cy="50" r="38" fill="none" stroke="#eaf2fb" stroke-opacity="0.25" stroke-width="1.5" />
+
+  <!-- Tick marks: North, South, East, West -->
+  <rect x="47" y="6" width="6" height="12" fill="#eaf2fb" />
+  <rect x="47" y="82" width="6" height="12" fill="#eaf2fb" />
+  <rect x="6" y="47" width="12" height="6" fill="#eaf2fb" />
+  <rect x="82" y="47" width="12" height="6" fill="#eaf2fb" />
+
+  <!-- The needle: one orange point, one sky-blue point -->
+  <polygon points="50,20 58,50 50,80 42,50" fill="#ff7a29" />
+  <polygon points="20,50 50,42 80,50 50,58" fill="#4fc3f7" />
+  <circle cx="50" cy="50" r="7" fill="#ffffff" />
+</svg>

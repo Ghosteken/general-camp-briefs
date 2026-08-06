@@ -1,0 +1,8 @@
+<!-- Placeholder gallery photo: "Trophy Lift" -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <rect width="400" height="300" fill="#111111" />
+  <path d="M170 120 h60 v40 a30 30 0 0 1 -60 0 z" fill="#ffd700" />
+  <rect x="190" y="160" width="20" height="35" fill="#ffd700" />
+  <rect x="160" y="195" width="80" height="14" fill="#ffd700" />
+  <text x="200" y="250" font-family="Arial, sans-serif" font-size="22" fill="#ffffff" text-anchor="middle">Trophy Lift</text>
+</svg>

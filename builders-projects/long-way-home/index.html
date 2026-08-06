@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<!--
+  PROJECT: The Long Way Home
+  WHY THIS FILE EXISTS: index.html is the page a browser opens first. It
+    holds the STRUCTURE and CONTENT of every section (what text, images
+    and buttons exist, and in what order) - almost like the skeleton of
+    the page. The LOOK of the page lives in css/style.css, and the
+    INTERACTIVE behaviour lives in js/script.js. Splitting these three
+    jobs into three files is a habit professional developers use, and
+    it makes each file much easier to read and change.
+  HOW TO READ THIS FILE: Scroll down and look for the big comment
+    banners like "SECTION: HERO". Each one marks where one part of the
+    page (Navigation, Hero, Story, etc.) begins.
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Long Way Home | A 2D Adventure Game About the Scenic Route</title>
+  <meta name="description" content="The Long Way Home is a 2D adventure game where you score points for taking the longest, most scenic route instead of the fastest one. Meet your AI companion Pip and start exploring." />
+
+  <!-- A hand-drawn SVG compass icon, so the browser tab icon never needs an internet download -->
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+
+  <!-- All of our page's styling lives in one CSS file -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!--
+    The "defer" attribute tells the browser: "download this script in the
+    background, but don't run it until the whole page has been read and
+    built." That means our JavaScript can safely look for buttons and
+    other elements on the page without them being missing yet.
+  -->
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+
+  <!-- Lets keyboard and screen-reader users jump straight past the navigation menu -->
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ==================================================================
+       SECTION: NAVIGATION
+       WHY: Every section of a long page needs a menu so players can
+            jump straight to the part they want (Characters, FAQ, etc.)
+       WHAT: A logo, a row of links, a "Play Demo" button, and (on small
+             screens) a hamburger button that shows/hides the menu.
+       HOW: <nav> is the semantic HTML5 element for "this is navigation".
+            The hamburger button starts with aria-expanded="false" -
+            JavaScript flips it to "true" and adds the "is-open" class
+            to the menu when a player taps it on a phone.
+  =================================================================== -->
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a class="nav__brand" href="#top">
+        <img src="images/logo.svg" alt="" width="36" height="36" />
+        The Long Way Home
+      </a>
+
+      <button
+        id="nav-toggle"
+        class="nav__toggle"
+        aria-expanded="false"
+        aria-controls="nav-menu"
+        aria-label="Open navigation menu"
+      >
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+      </button>
+
+      <ul id="nav-menu" class="nav__menu">
+        <li><a href="#story">Story</a></li>
+        <li><a href="#characters">Characters</a></li>
+        <li><a href="#gameplay">Gameplay</a></li>
+        <li><a href="#ai-pathfinding">AI Pathfinding</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#roadmap">Roadmap</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li class="nav__cta"><a class="btn btn--primary" href="#gameplay">Play Demo</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- ================================================================
+         SECTION: HERO
+         WHY: The first thing a visitor sees. Its job is to explain the
+              game's big idea in one glance and give them a button to
+              press right away.
+         WHAT: A headline, a short description, two call-to-action
+               buttons, a background illustration, and a strip of four
+               "animated counter" statistics.
+         HOW: The stat numbers start at 0 in the HTML. js/script.js uses
+              something called an IntersectionObserver to notice the
+              moment this strip scrolls into view, and then counts each
+              number up to its data-target value using setInterval.
+    ================================================================= -->
+    <section id="top" class="hero">
+      <img class="hero__bg" src="images/hero-map.svg" alt="" aria-hidden="true" />
+
+      <div class="hero__inner">
+        <p class="hero__eyebrow">A 2D Adventure Game</p>
+        <h1 id="hero-heading">Why take the short way home, when you could take <span>the long way</span>?</h1>
+        <p>
+          Explore forests, deserts, sky bridges and mountain passes. Every
+          detour, landmark and hidden trail adds to your score - the
+          player with the longest, wildest route wins.
+        </p>
+
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="#gameplay">Start Your Journey</a>
+          <a class="btn btn--secondary" href="#gallery">See the Maps</a>
+        </div>
+
+        <div class="stats">
+          <div class="stat">
+            <span class="stat__number" data-target="12480" data-suffix="+">0</span>
+            <span class="stat__label">Wanderers Playing</span>
+          </div>
+          <div class="stat">
+            <span class="stat__number" data-target="317" data-suffix=" km">0</span>
+            <span class="stat__label">Longest Route Recorded</span>
+          </div>
+          <div class="stat">
+            <span class="stat__number" data-target="24" data-suffix="">0</span>
+            <span class="stat__label">Maps to Explore</span>
+          </div>
+          <div class="stat">
+            <span class="stat__number" data-target="1893" data-suffix="+">0</span>
+            <span class="stat__label">Secret Detours Found</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         SECTION: STORY
+         WHY: Gives the game a bit of heart - players connect more with
+              a game when there's a reason behind what they're doing.
+         WHAT: A short explanation of the game's premise, next to an
+               illustration.
+         HOW: A simple two-column layout (image + text) that stacks into
+              one column automatically on narrow phone screens.
+    ================================================================= -->
+    <section id="story" class="section" aria-labelledby="story-heading">
+      <div class="container">
+        <div class="story__grid">
+          <figure class="story__art">
+            <img src="images/gallery-5.svg" alt="A hero climbing a switch-backing trail up a mountain pass under a starry sky" />
+          </figure>
+
+          <div class="story__text">
+            <p class="section-heading__eyebrow">The Story</p>
+            <h2 id="story-heading">Every compass in this world points home. That's the problem.</h2>
+            <p>
+              Legend says the old compasses in this valley only know one
+              trick: the shortest path back to your front door. Boring,
+              right? So the wanderers of this world stopped using them
+              for directions - and started using them as a challenge.
+            </p>
+            <p>
+              Your goal isn't to get home fast. It's to see everything
+              worth seeing on the way: the whispering forests, the sky
+              bridges, the desert detours, and every secret trail in
+              between. The longer and stranger your route, the higher
+              your score.
+            </p>
+            <p>
+              You won't wander alone. Pip, a small AI companion built by
+              Echo the Tinker, tags along to suggest routes even you
+              wouldn't have thought to try.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         SECTION: CHARACTERS
+         WHY: Letting players choose a hero makes the game feel personal.
+         WHAT: Four character cards. Clicking one selects it and updates
+               a detail panel underneath with that hero's story.
+         HOW: Each card is a real <button> (so it works with keyboards
+              and screen readers), storing its info in data-* attributes
+              that js/script.js reads when the button is clicked.
+    ================================================================= -->
+    <section id="characters" class="section section--alt" aria-labelledby="characters-heading">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-heading__eyebrow">Choose Your Hero</p>
+          <h2 id="characters-heading">Four wanderers. Four ways to take the long way home.</h2>
+          <p>Tap a hero to read their story and see their special talent.</p>
+        </div>
+
+        <div class="character-grid" role="group" aria-label="Choose your hero">
+          <button
+            class="character-card is-selected"
+            aria-pressed="true"
+            data-name="Milo"
+            data-role="The Scout"
+            data-ability="Reveals one hidden trail on the map every time you visit a new landmark."
+            data-quote="&quot;The fastest way is rarely the interesting way.&quot;"
+          >
+            <img src="images/character-scout.svg" alt="Milo the Scout, a sky-blue themed adventurer" />
+            <span class="character-card__name">Milo</span>
+            <span class="character-card__role">The Scout</span>
+          </button>
+
+          <button
+            class="character-card"
+            aria-pressed="false"
+            data-name="Ruby"
+            data-role="The Ranger"
+            data-ability="Never gets tired, so her routes can be twice as long as everyone else's."
+            data-quote="&quot;We're not lost. We're thorough.&quot;"
+          >
+            <img src="images/character-ranger.svg" alt="Ruby the Ranger, an orange themed adventurer" />
+            <span class="character-card__name">Ruby</span>
+            <span class="character-card__role">The Ranger</span>
+          </button>
+
+          <button
+            class="character-card"
+            aria-pressed="false"
+            data-name="Sable"
+            data-role="The Nomad"
+            data-ability="Can travel safely at night, unlocking routes that only appear after dark."
+            data-quote="&quot;Home can wait. The stars are out.&quot;"
+          >
+            <img src="images/character-nomad.svg" alt="Sable the Nomad, a pale night-travelling adventurer" />
+            <span class="character-card__name">Sable</span>
+            <span class="character-card__role">The Nomad</span>
+          </button>
+
+          <button
+            class="character-card"
+            aria-pressed="false"
+            data-name="Echo"
+            data-role="The Tinker"
+            data-ability="Built Pip, the AI companion - and can call in extra AI-suggested routes more often."
+            data-quote="&quot;I didn't build Pip to find the way. I built her to find the long way.&quot;"
+          >
+            <img src="images/character-tinker.svg" alt="Echo the Tinker, builder of the AI companion Pip" />
+            <span class="character-card__name">Echo</span>
+            <span class="character-card__role">The Tinker</span>
+          </button>
+        </div>
+
+        <div id="character-detail" class="character-detail" aria-live="polite">
+          <h3>Milo, The Scout</h3>
+          <p>Reveals one hidden trail on the map every time you visit a new landmark.</p>
+          <p>"The fastest way is rarely the interesting way."</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         SECTION: GAMEPLAY
+         WHY: Explains the actual rules, and lets visitors try two small
+              interactive taste-tests before they commit to the full
+              game.
+         WHAT: A rules list, a "Random Route Generator" widget, and a
+               rotating "Game Tips" widget.
+         HOW: The generator button picks random items out of arrays in
+              js/script.js using Math.random(). The tips widget swaps
+              text every few seconds using setInterval, and a button
+              lets players skip ahead manually.
+    ================================================================= -->
+    <section id="gameplay" class="section" aria-labelledby="gameplay-heading">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-heading__eyebrow">How to Play</p>
+          <h2 id="gameplay-heading">Score points for wandering, not for hurrying.</h2>
+        </div>
+
+        <div class="gameplay__grid">
+          <div>
+            <ol class="rules-list">
+              <li>
+                <span class="rules-list__number">1</span>
+                <span>Pick a hero and drop into any map you've unlocked.</span>
+              </li>
+              <li>
+                <span class="rules-list__number">2</span>
+                <span>Every tile of trail you walk adds distance points to your route.</span>
+              </li>
+              <li>
+                <span class="rules-list__number">3</span>
+                <span>Detours, landmarks and hidden trails add bonus points on top.</span>
+              </li>
+              <li>
+                <span class="rules-list__number">4</span>
+                <span>Walking in a straight line home costs you the game. Wander on purpose!</span>
+              </li>
+            </ol>
+          </div>
+
+          <div>
+            <div class="widget-card">
+              <h3>🎲 Random Route Generator</h3>
+              <p class="widget-hint">Not sure where to wander today? Let the game suggest a route.</p>
+              <button id="generate-route-btn" class="btn btn--primary btn--block">Generate a Random Route</button>
+              <div id="route-output" class="route-output" aria-live="polite">
+                <p class="route-placeholder">Click the button to plot your route!</p>
+              </div>
+            </div>
+
+            <div class="widget-card" style="margin-top: 1.5rem;">
+              <h3>💡 Game Tips</h3>
+              <div class="tip-box">
+                <span class="tip-box__icon" aria-hidden="true">🧭</span>
+                <p id="tip-text" class="tip-box__text">Loading a tip...</p>
+                <button id="next-tip-btn" class="btn btn--secondary">Next Tip</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         SECTION: AI PATHFINDING
+         WHY: This is the game's twist on a classic computer-science
+              idea. Most "pathfinding" AI finds the SHORTEST route
+              between two points. Pip does the opposite on purpose.
+         WHAT: An explanation of how Pip works, plus a mini interactive
+               map players can click on to build their own route, or ask
+               Pip to suggest a long one for them.
+         HOW: The map is a grid of buttons built with JavaScript
+              (document.createElement, in a loop). Clicking a tile toggles
+              a CSS class that marks it as part of your route. The
+              "Ask Pip" button selects a batch of random tiles one at a
+              time using setTimeout, so it looks like Pip is "thinking".
+    ================================================================= -->
+    <section id="ai-pathfinding" class="section section--alt" aria-labelledby="ai-heading">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-heading__eyebrow">Meet Pip</p>
+          <h2 id="ai-heading">An AI that's trained to find the long way, not the short way.</h2>
+          <p>
+            Most game AI plans the fastest route from A to B. Echo built
+            Pip to do the opposite: explore as much of the map as
+            possible before arriving. Try the mini map below yourself.
+          </p>
+        </div>
+
+        <div class="widget-card map-widget">
+          <h3>🗺️ Mini Interactive Map</h3>
+          <p class="widget-hint">
+            Click tiles to build your own route from Start to Home (each
+            tile is worth 5 points), or let Pip suggest a longer one for
+            you. In the full game, tiles must connect edge-to-edge - here
+            we've kept it simple so it's easy to try.
+          </p>
+
+          <div id="map-grid" class="map-grid" role="group" aria-label="Interactive route map, 8 columns by 5 rows"></div>
+
+          <div class="map-widget__controls">
+            <p>Your Route Score: <span id="map-score" class="map-score">0</span></p>
+            <button id="ask-ai-btn" class="btn btn--secondary">Ask Pip for a Longer Route</button>
+            <button id="reset-map-btn" class="btn btn--secondary">Reset Map</button>
+          </div>
+          <p id="map-message" class="map-widget__message" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         SECTION: GALLERY
+         WHY: Shows off the variety of maps in the game.
+         WHAT: A responsive grid of six illustrated "screenshots".
+         HOW: <figure> and <figcaption> are the semantic HTML5 elements
+              for "an image with a caption that belongs to it".
+    ================================================================= -->
+    <section id="gallery" class="section" aria-labelledby="gallery-heading">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-heading__eyebrow">Gallery</p>
+          <h2 id="gallery-heading">Six maps. A thousand ways to get lost on purpose.</h2>
+        </div>
+
+        <div class="gallery-grid">
+          <figure>
+            <img src="images/gallery-1.svg" alt="The Whispering Forest Trail, a winding path between tall pine trees with fireflies" loading="lazy" />
+            <figcaption>Whispering Forest Trail</figcaption>
+          </figure>
+          <figure>
+            <img src="images/gallery-2.svg" alt="The Sky Bridges, floating platforms connected across a bright blue sky" loading="lazy" />
+            <figcaption>The Sky Bridges</figcaption>
+          </figure>
+          <figure>
+            <img src="images/gallery-3.svg" alt="Desert Detour, rolling orange sand dunes under a pale sun" loading="lazy" />
+            <figcaption>Desert Detour</figcaption>
+          </figure>
+          <figure>
+            <img src="images/gallery-4.svg" alt="Village Crossroads, several small houses around a lantern-lit crossroads" loading="lazy" />
+            <figcaption>Village Crossroads</figcaption>
+          </figure>
+          <figure>
+            <img src="images/gallery-5.svg" alt="Mountain Pass, jagged peaks with a switch-backing trail under the stars" loading="lazy" />
+            <figcaption>Mountain Pass</figcaption>
+          </figure>
+          <figure>
+            <img src="images/gallery-6.svg" alt="The Longest Bridge, a long wooden bridge crossing a chasm at sunset" loading="lazy" />
+            <figcaption>The Longest Bridge</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         SECTION: ROADMAP
+         WHY: Shows players (and shows students how a real product page
+              works) what's coming next.
+         WHAT: A vertical timeline of chapters, each with a status badge.
+         HOW: An ordered list styled to look like a timeline using CSS
+              (see the .roadmap-timeline rules) - no JavaScript needed,
+              a good example of "CSS alone can do a lot of the work".
+    ================================================================= -->
+    <section id="roadmap" class="section section--alt" aria-labelledby="roadmap-heading">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-heading__eyebrow">Roadmap</p>
+          <h2 id="roadmap-heading">What's next on the trail</h2>
+        </div>
+
+        <ol class="roadmap-timeline">
+          <li class="roadmap-item">
+            <span class="badge badge--live">Available Now</span>
+            <h3>Chapter 1: The Forgotten Trail</h3>
+            <p>The forest, desert and village maps, plus Milo and Ruby.</p>
+          </li>
+          <li class="roadmap-item">
+            <span class="badge badge--soon">Coming Soon</span>
+            <h3>Chapter 2: The Sky Bridges</h3>
+            <p>Floating platform maps, plus Sable and Echo join the roster.</p>
+          </li>
+          <li class="roadmap-item">
+            <span class="badge badge--soon">Coming Soon</span>
+            <h3>Chapter 3: Multiplayer Detours</h3>
+            <p>Race a friend to see who can take the longer route home.</p>
+          </li>
+          <li class="roadmap-item">
+            <span class="badge badge--planned">Planned</span>
+            <h3>Chapter 4: The Longest Way Home Championship</h3>
+            <p>A seasonal leaderboard for the wildest, longest routes ever recorded.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         SECTION: FAQ
+         WHY: Answers common questions before players have to ask them.
+         WHAT: An accordion - a list of questions that expand to show
+               their answer when clicked.
+         HOW: Each question is a <button> with aria-expanded="false".
+              js/script.js listens for clicks, flips aria-expanded to
+              "true", and toggles the "hidden" attribute on the matching
+              answer. Using the real "hidden" attribute (not just CSS)
+              means screen readers correctly skip closed answers.
+    ================================================================= -->
+    <section id="faq" class="section" aria-labelledby="faq-heading">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-heading__eyebrow">FAQ</p>
+          <h2 id="faq-heading">Frequently Asked Questions</h2>
+        </div>
+
+        <div class="accordion">
+          <div class="accordion-item">
+            <h3>
+              <button id="faq-trigger-1" class="accordion-trigger" aria-expanded="false" aria-controls="faq-panel-1">
+                Wait, so I WANT to get lost?
+                <span class="accordion-icon" aria-hidden="true">+</span>
+              </button>
+            </h3>
+            <div id="faq-panel-1" class="accordion-panel" role="region" aria-labelledby="faq-trigger-1" hidden>
+              Exactly. Every game rewards speed. This one rewards curiosity - the longer and more interesting your path, the higher you score.
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h3>
+              <button id="faq-trigger-2" class="accordion-trigger" aria-expanded="false" aria-controls="faq-panel-2">
+                Is there ever a reason to go home quickly?
+                <span class="accordion-icon" aria-hidden="true">+</span>
+              </button>
+            </h3>
+            <div id="faq-panel-2" class="accordion-panel" role="region" aria-labelledby="faq-trigger-2" hidden>
+              Only during a storm event, where the map temporarily hides bonus points. Most of the time, hurrying home is the worst move you can make.
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h3>
+              <button id="faq-trigger-3" class="accordion-trigger" aria-expanded="false" aria-controls="faq-panel-3">
+                Who or what is Pip?
+                <span class="accordion-icon" aria-hidden="true">+</span>
+              </button>
+            </h3>
+            <div id="faq-panel-3" class="accordion-panel" role="region" aria-labelledby="faq-trigger-3" hidden>
+              Pip is a small AI companion built by Echo the Tinker. Instead of finding the shortest route like most game AI, Pip is trained to suggest the longest interesting one.
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h3>
+              <button id="faq-trigger-4" class="accordion-trigger" aria-expanded="false" aria-controls="faq-panel-4">
+                Can I play with friends?
+                <span class="accordion-icon" aria-hidden="true">+</span>
+              </button>
+            </h3>
+            <div id="faq-panel-4" class="accordion-panel" role="region" aria-labelledby="faq-trigger-4" hidden>
+              Multiplayer detour races are planned for Chapter 3 - check the Roadmap section above for details.
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h3>
+              <button id="faq-trigger-5" class="accordion-trigger" aria-expanded="false" aria-controls="faq-panel-5">
+                Is this page part of a real, playable game?
+                <span class="accordion-icon" aria-hidden="true">+</span>
+              </button>
+            </h3>
+            <div id="faq-panel-5" class="accordion-panel" role="region" aria-labelledby="faq-trigger-5" hidden>
+              This page is a coding bootcamp demo project. The game itself doesn't exist yet - but everything you see here (the map widget, the route generator) is built with real HTML, CSS and JavaScript you can read and learn from.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         SECTION: CONTACT
+         WHY: Every real landing page ends with a way to get in touch.
+         WHAT: A simple contact form and a few contact details.
+         HOW: The "required" and "type=email" attributes let the browser
+              check the form for us before it's submitted - no JavaScript
+              needed for that part! js/script.js only steps in to stop
+              the page from reloading and to show a thank-you message.
+    ================================================================= -->
+    <section id="contact" class="section section--alt" aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-heading__eyebrow">Contact</p>
+          <h2 id="contact-heading">Found a bug on the trail? Tell us.</h2>
+        </div>
+
+        <div class="contact__grid">
+          <form id="contact-form" class="contact-form" novalidate="false">
+            <div class="form-field">
+              <label for="contact-name">Your Name</label>
+              <input id="contact-name" name="name" type="text" required autocomplete="name" />
+            </div>
+            <div class="form-field">
+              <label for="contact-email">Your Email</label>
+              <input id="contact-email" name="email" type="email" required autocomplete="email" />
+            </div>
+            <div class="form-field">
+              <label for="contact-message">Message</label>
+              <textarea id="contact-message" name="message" required></textarea>
+            </div>
+            <button type="submit" class="btn btn--primary btn--block">Send Message</button>
+            <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+          </form>
+
+          <div class="contact-info">
+            <div class="contact-info__item">
+              <h3>Email</h3>
+              <p>hello@thelongwayhome.example</p>
+            </div>
+            <div class="contact-info__item">
+              <h3>Community Hub</h3>
+              <p>Join other wanderers and share your longest routes.</p>
+            </div>
+            <div class="contact-info__item">
+              <h3>Support Hours</h3>
+              <p>Monday to Friday, 9am - 5pm. Pip never sleeps, but we do.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================================================================
+       SECTION: FOOTER
+       WHY: Wraps up the page with the brand, quick links, and the
+            copyright line every website ends with.
+       WHAT: Four columns (brand, and three link lists) plus a bottom bar.
+       HOW: The year in the copyright line is filled in by JavaScript
+            using `new Date().getFullYear()`, so it's always correct
+            without anyone needing to edit this file every January.
+  =================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__col">
+          <a class="footer__brand" href="#top">
+            <img src="images/logo.svg" alt="" width="32" height="32" />
+            The Long Way Home
+          </a>
+          <p class="footer__tagline">A 2D adventure game about taking the scenic route, built as a coding bootcamp demo project.</p>
+
+          <div class="footer__social">
+            <a href="#" aria-label="Visit the Community Hub">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v12H8l-4 4V4z" /></svg>
+            </a>
+            <a href="#" aria-label="Read the Dev Blog">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h14v18H5V3zm2 4h10M7 11h10M7 15h6" stroke="#0b1b33" stroke-width="1.5" fill="none" /></svg>
+            </a>
+            <a href="#" aria-label="Watch Video Highlights">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4V4zm6 4v8l6-4-6-4z" /></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer__col">
+          <h3>Explore</h3>
+          <ul>
+            <li><a href="#story">Story</a></li>
+            <li><a href="#characters">Characters</a></li>
+            <li><a href="#gameplay">Gameplay</a></li>
+            <li><a href="#ai-pathfinding">AI Pathfinding</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h3>Game</h3>
+          <ul>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#roadmap">Roadmap</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h3>Connect</h3>
+          <ul>
+            <li><a href="#contact">Contact Us</a></li>
+            <li><a href="#top">Back to Top</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p>&copy; <span id="year">2026</span> The Long Way Home. Built for learning purposes in a coding bootcamp.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

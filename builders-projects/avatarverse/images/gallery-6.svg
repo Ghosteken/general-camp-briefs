@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img" aria-label="VICTORY SCREEN screenshot">
+  <defs>
+    <linearGradient id="gg-gallery-6.svg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7b2ff7" />
+      <stop offset="1" stop-color="#00f6ff" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="#05050a" />
+  <rect width="800" height="450" fill="url(#gg-gallery-6.svg)" opacity="0.35" />
+  <polyline points="0,380 160,300 320,360 480,260 640,320 800,220" fill="none" stroke="#00f6ff" stroke-width="3" opacity="0.6" />
+  <polyline points="0,420 200,380 380,420 560,360 800,400" fill="none" stroke="#7b2ff7" stroke-width="3" opacity="0.6" />
+  <text x="400" y="235" font-family="Arial, sans-serif" font-size="34" letter-spacing="3" text-anchor="middle" fill="#eef2ff">VICTORY SCREEN</text>
+</svg>

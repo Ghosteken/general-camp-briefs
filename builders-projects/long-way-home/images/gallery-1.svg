@@ -1,0 +1,28 @@
+<!--
+  FILE: gallery-1.svg
+  WHY: The Gallery section shows off "screenshots" from the game. We draw
+       simple scenes instead of using real photos or downloaded images.
+  WHAT: "Whispering Forest Trail" - tall pine-tree silhouettes with a
+       dashed orange trail winding between them and a few firefly dots.
+  HOW: <polygon> makes each triangular tree. <path> draws the winding
+       dashed trail, the same trick used in hero-map.svg.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Screenshot placeholder: Whispering Forest Trail">
+  <rect width="800" height="500" fill="#0b1b33" />
+
+  <!-- Layered pine trees -->
+  <polygon points="100,420 140,300 180,420" fill="#142a4d" />
+  <polygon points="220,440 270,280 320,440" fill="#142a4d" />
+  <polygon points="380,420 420,300 460,420" fill="#142a4d" />
+  <polygon points="540,440 590,280 640,440" fill="#142a4d" />
+  <polygon points="680,420 715,320 750,420" fill="#142a4d" />
+
+  <!-- Winding trail -->
+  <path d="M40,470 C 180,440 220,400 320,410 C 460,420 480,360 620,340 C 700,328 720,300 770,260"
+        fill="none" stroke="#ff7a29" stroke-width="7" stroke-linecap="round" stroke-dasharray="16 12" />
+
+  <!-- Fireflies -->
+  <circle cx="300" cy="380" r="5" fill="#4fc3f7" opacity="0.9" />
+  <circle cx="520" cy="330" r="5" fill="#4fc3f7" opacity="0.9" />
+  <circle cx="640" cy="300" r="4" fill="#4fc3f7" opacity="0.7" />
+</svg>

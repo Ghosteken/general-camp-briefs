@@ -1,0 +1,24 @@
+<!--
+  FILE: gallery-3.svg
+  WHY: A third gallery scene, showing a very different biome from the
+       forest and sky-bridge scenes.
+  WHAT: "Desert Detour" - soft rolling sand dunes in shades of orange,
+       a pale sun and a faint winding trail.
+  HOW: Each dune is one smooth <path> made with a single curve command.
+       Layering three of them, lightest at the back, creates depth.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Screenshot placeholder: Desert Detour">
+  <rect width="800" height="500" fill="#0b1b33" />
+
+  <!-- Pale sun -->
+  <circle cx="640" cy="120" r="60" fill="#ffe8d1" opacity="0.9" />
+
+  <!-- Dunes, back to front -->
+  <path d="M0,320 C 200,260 400,300 800,240 L 800,500 L 0,500 Z" fill="#e2611a" opacity="0.55" />
+  <path d="M0,380 C 220,330 460,400 800,340 L 800,500 L 0,500 Z" fill="#ff7a29" opacity="0.7" />
+  <path d="M0,440 C 240,400 500,460 800,420 L 800,500 L 0,500 Z" fill="#ff7a29" />
+
+  <!-- Faint winding trail across the dunes -->
+  <path d="M40,470 C 220,440 260,410 420,420 C 560,430 600,400 760,380"
+        fill="none" stroke="#eaf2fb" stroke-width="5" stroke-linecap="round" stroke-dasharray="14 10" opacity="0.6" />
+</svg>

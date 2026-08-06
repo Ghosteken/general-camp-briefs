@@ -1,0 +1,30 @@
+<!--
+  FILE: character-scout.svg
+  WHY: The Characters section lets players pick a hero. We draw each hero
+       as a friendly, simple face instead of using a photo.
+  WHAT: Milo the Scout - a sky-blue themed explorer with a compass badge,
+       because Scouts are the character who reveals hidden paths.
+  HOW: Circles and one triangle build a simple hooded face. A small
+       diamond + circle in the corner is the "ability icon" that hints
+       at what this character does in the game.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" role="img" aria-label="Milo the Scout character artwork">
+  <rect width="300" height="300" rx="24" fill="#0b1b33" />
+  <circle cx="150" cy="120" r="90" fill="#4fc3f7" opacity="0.22" />
+
+  <!-- Hood / cloak -->
+  <polygon points="150,48 214,142 86,142" fill="#29a8e0" />
+
+  <!-- Face -->
+  <circle cx="150" cy="152" r="46" fill="#eaf2fb" />
+  <circle cx="131" cy="148" r="6" fill="#0b1b33" />
+  <circle cx="169" cy="148" r="6" fill="#0b1b33" />
+  <path d="M133,172 Q150,184 167,172" stroke="#0b1b33" stroke-width="4" fill="none" stroke-linecap="round" />
+
+  <!-- Ability icon: a mini compass, top-right corner -->
+  <circle cx="238" cy="58" r="22" fill="#0b1b33" stroke="#4fc3f7" stroke-width="2" />
+  <polygon points="238,44 244,58 238,72 232,58" fill="#4fc3f7" />
+
+  <text x="150" y="248" font-family="Arial, sans-serif" font-size="26" font-weight="bold" text-anchor="middle" fill="#ffffff">MILO</text>
+  <text x="150" y="273" font-family="Arial, sans-serif" font-size="15" letter-spacing="2" text-anchor="middle" fill="#4fc3f7">THE SCOUT</text>
+</svg>

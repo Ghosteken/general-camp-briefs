@@ -1,0 +1,8 @@
+<!-- Placeholder gallery photo: "Celebration" -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <rect width="400" height="300" fill="#111111" />
+  <path d="M140 220 L160 130 L180 220 Z" fill="#ffd700" />
+  <path d="M200 220 L220 110 L240 220 Z" fill="#ffffff" />
+  <path d="M260 220 L280 140 L300 220 Z" fill="#ffd700" />
+  <text x="200" y="255" font-family="Arial, sans-serif" font-size="22" fill="#ffffff" text-anchor="middle">Celebration</text>
+</svg>

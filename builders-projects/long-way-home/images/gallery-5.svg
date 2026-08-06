@@ -1,0 +1,27 @@
+<!--
+  FILE: gallery-5.svg
+  WHY: A fifth gallery scene, showing a harder, higher-altitude map.
+  WHAT: "Mountain Pass" - jagged layered peaks under a starry sky, with
+       a switch-backing trail climbing between them.
+  HOW: Peaks are <polygon> shapes with several points instead of just
+       three, which makes their outline look jagged and rocky.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Screenshot placeholder: Mountain Pass">
+  <rect width="800" height="500" fill="#060f1f" />
+
+  <!-- Stars -->
+  <circle cx="90" cy="60" r="2.5" fill="#eaf2fb" opacity="0.8" />
+  <circle cx="260" cy="40" r="2" fill="#eaf2fb" opacity="0.6" />
+  <circle cx="460" cy="70" r="2.5" fill="#eaf2fb" opacity="0.8" />
+  <circle cx="640" cy="50" r="2" fill="#eaf2fb" opacity="0.6" />
+  <circle cx="740" cy="90" r="2.5" fill="#eaf2fb" opacity="0.7" />
+
+  <!-- Distant jagged peaks -->
+  <polygon points="0,340 90,220 160,300 240,180 320,320 400,240 480,340" fill="#142a4d" />
+  <polygon points="380,340 470,210 560,310 640,190 720,330 800,250 800,340" fill="#142a4d" />
+
+  <!-- Nearer, taller peak with a switch-backing trail -->
+  <polygon points="180,500 340,180 500,500" fill="#0b1b33" />
+  <path d="M220,480 L 300,420 L 250,380 L 330,320 L 280,280 L 340,220"
+        fill="none" stroke="#ff7a29" stroke-width="6" stroke-linecap="round" stroke-dasharray="14 10" />
+</svg>

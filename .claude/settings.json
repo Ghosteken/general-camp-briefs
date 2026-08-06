@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir -p /workspaces/general-camp-briefs/builders-projects/avatarverse/css)",
+      "Bash(mkdir -p /workspaces/general-camp-briefs/builders-projects/avatarverse/js)",
+      "Bash(mkdir -p /workspaces/general-camp-briefs/builders-projects/avatarverse/images)",
+      "Read(//tmp/claude-1000/bundled-skills/2.1.223/**)",
+      "Bash(find / -maxdepth 6 -iname \"chromium-cli*\")",
+      "Bash(npx --no-install chromium-cli --help)",
+      "Bash(find / -maxdepth 6 -iname \"*chromium*\")",
+      "Bash(find / -maxdepth 6 -iname \"*playwright*\")",
+      "Read(//tmp/claude-1000/bundled-skills/**)",
+      "Bash(node -e \"require.resolve\\('playwright'\\)\")",
+      "Bash(npm ls *)",
+      "Read(//tmp/**)",
+      "Bash(timeout 90 npm install playwright --no-save)",
+      "Bash(timeout 100 npx playwright install --with-deps chromium)",
+      "Bash(timeout 150 npx playwright install chromium)",
+      "Bash(mkdir -p /tmp/claude-1000/-workspaces-general-camp-briefs/4d311441-4ec7-403d-aeec-824bf9c07219/scratchpad/shots)",
+      "Bash(NODE_PATH=/tmp/node_modules node /tmp/claude-1000/-workspaces-general-camp-briefs/4d311441-4ec7-403d-aeec-824bf9c07219/scratchpad/verify.mjs)",
+      "Bash(node /tmp/claude-1000/-workspaces-general-camp-briefs/4d311441-4ec7-403d-aeec-824bf9c07219/scratchpad/verify.mjs)",
+      "Bash(rm -rf /tmp/node_modules /tmp/package.json /tmp/package-lock.json 2>/dev/null; echo done)"
+    ],
+    "additionalDirectories": [
+      "/tmp/node_modules"
+    ]
+  }
+}
