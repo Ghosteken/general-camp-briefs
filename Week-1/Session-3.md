@@ -1,5 +1,5 @@
 
-# Session 3 – Publish Your First Website
+# Session 3 – Completing Our First Website
 
 **Week 1 | Kokoodi AI Makers Camp**
 
@@ -7,50 +7,49 @@
 
 **Instructor:** Kingsley Onyema
 
-**Theme:** Build • Publish • Share
+**Theme:** Completing Our First Website with Semantic HTML, Navigation and GitHub Pages
 
-**Duration:** Approximately 3 Hours (excluding breaks)
+**Duration:** Approximately 3 hours (excluding breaks)
 
 ---
 
 # Session Overview
 
-Today is the final session of Week 1.
+This is the final HTML session before students begin learning CSS.
 
-Builders will complete their first website, publish it online using GitHub Pages, and present it during Demo Time.
+Today's goal is to transform each Builder's homepage into a professional multi-section website using semantic HTML elements.
 
-The emphasis today is **finishing**, not adding lots of new features.
+Students will also learn how navigation works using anchor links, understand Git commits, and publish their websites live using GitHub Pages.
 
-Students should leave with:
-
-- A complete homepage
-- A public GitHub repository
-- A live website
-- Confidence explaining every section of their HTML
+By the end of today's lesson, every Builder should have a live website that they can proudly share with family and friends.
 
 ---
 
 # Learning Objectives
 
-By the end of today's session, every Builder should be able to:
+By the end of today's lesson, students will be able to:
 
-- Review and improve their HTML structure.
-- Explain every HTML element used.
-- Understand what Git is.
-- Understand what GitHub is.
-- Create meaningful commits.
+- Explain semantic HTML.
+- Build a professional webpage structure.
+- Use semantic HTML elements correctly.
+- Create a navigation bar.
+- Link navigation items to page sections.
+- Understand HTML IDs.
+- Use internal anchor links.
+- Make meaningful Git commits.
 - Publish a website using GitHub Pages.
-- Present their work confidently.
+- Present their project confidently.
 
 ---
 
 # Materials
 
 - VS Code for Web
-- GitHub Repository
-- Internet Connection
-- Microsoft Teams
+- GitHub
+- GitHub Pages
 - Browser
+- Teams
+- Internet Connection
 
 ---
 
@@ -58,453 +57,504 @@ By the end of today's session, every Builder should be able to:
 
 ## Joshua
 
-Project
-
+Project:
 **AvatarVerse**
 
-Goal
+Today's Goal
 
-Publish the first version of the AvatarVerse landing page.
+- Add navigation
+- Add multiple sections
+- Add character section
+- Add contact section
 
 ---
 
 ## Buyi
 
-Project
-
+Project:
 **Footy Stats**
 
-Goal
+Today's Goal
 
-Publish the first version of the football statistics website.
+- Add navigation
+- Add player statistics section
+- Add latest matches section
+- Add contact section
 
 ---
 
 ## John
 
-Project
-
+Project:
 **The Long Way Home**
 
-Goal
+Today's Goal
 
-Publish the first version of the game homepage.
+- Add navigation
+- Add gameplay section
+- Add AI section
+- Add contact section
 
 ---
 
 # Session Schedule
 
-## Part 1 – Standup (10 Minutes)
+## Stand-up (10 Minutes)
 
 Each Builder answers:
 
-- What did I finish?
-- What am I working on today?
+- What did I complete?
+- What am I building today?
 - What is blocking me?
-
-Keep answers short.
 
 ---
 
-# Part 2 – Review HTML (15 Minutes)
+# Part 1 – Recap (10 Minutes)
 
-Quick recap.
+Review Session 2.
 
-Ask questions instead of lecturing.
+Students should remember:
 
-Review:
+- Headings
+- Paragraphs
+- Lists
+- Images
+- Links
+- GitHub
 
-```html
-<h1>
-<h2>
-<p>
-<ul>
-<li>
-<img>
-<a>
-<footer>
-```
+Explain:
+
+Today we are going to make our websites feel like professional websites.
+
+---
+
+# Part 2 – What Makes a Good Website? (10 Minutes)
 
 Ask students:
 
-- What does this tag do?
-- Why did you use it?
-- Where is it used on your website?
+Think about websites you visit every day.
+
+Examples:
+
+- YouTube
+- BBC
+- Nike
+- Google
+
+Questions
+
+- What do they all have?
+- How do you move around them?
+- Why don't you get lost?
+
+Expected Answers
+
+- Navigation
+- Sections
+- Logo
+- Footer
+- Images
 
 ---
 
-# Part 3 – Website Review
+# Part 3 – Semantic HTML (20 Minutes)
 
-Builders compare their websites against today's checklist.
+Explain that HTML gives us meaningful tags.
 
-Each homepage should contain:
+Instead of putting everything inside `<div>` elements, we can use tags that describe the purpose of the content.
 
-✅ Website Title
+Introduce:
 
-✅ Hero Section
+```html
+<header>
+<nav>
+<section>
+<aside>
+<footer>
+```
 
-✅ Description
+Explain each one.
 
-✅ About Section
+### header
 
-✅ Feature List
+Contains:
 
-✅ At least one Image
-
-✅ One Hyperlink
-
-✅ Footer
-
-Anything missing should be completed before publishing.
-
----
-
-# Mini Lesson – What is Git?
-
-Explain Git using simple language.
-
-Git remembers every version of your project.
-
-Think of Git as the Save Game button in a video game.
-
-Whenever you make progress, you save it.
-
-If something breaks, you can always go back.
+- Website title
+- Logo
+- Navigation
 
 ---
 
-# Mini Lesson – What is GitHub?
+### nav
 
-GitHub stores your projects online.
-
-Developers use GitHub to:
-
-- Save code
-- Share projects
-- Work together
-- Build portfolios
-
-Explain that almost every professional software developer has a GitHub account.
+Contains links that help users move around the page.
 
 ---
 
-# Mini Lesson – Repository
+### section
 
-A Repository is simply a project folder.
+Groups related information together.
+
+Examples
+
+- About
+- Features
+- Gallery
+- Contact
+
+---
+
+### aside
+
+Contains extra information.
+
+Examples
+
+- Tips
+- Statistics
+- News
+- Fun Facts
+
+---
+
+### footer
+
+Contains
+
+- Copyright
+- Contact information
+- Social media links
+
+---
+
+# Part 4 – IDs and Navigation (20 Minutes)
+
+Explain that each section needs its own ID.
 
 Example
 
-```
-AvatarVerse/
+```html
+<section id="about">
 
-index.html
+<h2>About</h2>
 
-images/
-
-README.md
+</section>
 ```
 
-Everything related to the project stays together.
+Navigation links use these IDs.
+
+Example
+
+```html
+<a href="#about">About</a>
+```
+
+When clicked,
+
+the browser scrolls directly to that section.
+
+Explain that almost every modern website uses this technique.
 
 ---
 
-# Mini Lesson – Commits
+# Live Coding Activity (30 Minutes)
 
-A Commit records your progress.
+Build together.
 
-Good commit messages:
+Create
 
-```
-Built homepage
+```html
+<header>
 
-Added football statistics section
+<nav>
 
-Finished About section
+<a href="#home">Home</a>
 
-Added images
+<a href="#about">About</a>
 
-Published first website
-```
+<a href="#features">Features</a>
 
-Avoid messages like:
+<a href="#contact">Contact</a>
 
-```
-Update
+</nav>
 
-Stuff
-
-Changes
-
-Fix
+</header>
 ```
 
-Every commit should explain what changed.
+Then build
 
----
+```html
+<section id="home">
 
-# Live Demonstration
+</section>
 
-Demonstrate the complete publishing process.
+<section id="about">
 
-Step 1
+</section>
 
-Open GitHub Repository
+<section id="features">
 
-↓
+</section>
 
-Step 2
+<section id="contact">
 
-Upload latest files
+</section>
+```
 
-↓
+Demonstrate clicking each navigation item.
 
-Step 3
-
-Commit Changes
-
-↓
-
-Step 4
-
-Open Repository Settings
-
-↓
-
-Step 5
-
-Enable GitHub Pages
-
-↓
-
-Step 6
-
-Wait a few minutes
-
-↓
-
-Step 7
-
-Open the public website
-
-Explain that every Builder will now have their own website on the Internet.
+Show the page scrolling.
 
 ---
 
 # Builder Activity
 
-Builders now complete and publish their own websites.
-
-Joshua
-
-Finish AvatarVerse homepage.
-
-Publish website.
+Students now improve their own websites.
 
 ---
 
-Buyi
+## Joshua
 
-Finish Footy Stats homepage.
+Add:
 
-Publish website.
-
----
-
-John
-
-Finish The Long Way Home homepage.
-
-Publish website.
+- Home
+- About
+- Characters
+- Features
+- Contact
 
 ---
 
-# Individual Coaching
+## Buyi
 
-During one-to-one sessions:
+Add:
 
-Check:
-
-- HTML structure
-- Images
-- Links
-- Headings
-- Lists
-- Paragraphs
-- Repository
-- Commit history
-
-Ask each Builder:
-
-"Can you explain every HTML tag you used?"
-
-If they cannot explain it,
-
-help them understand before moving on.
+- Home
+- About
+- Match Statistics
+- Top Players
+- Contact
 
 ---
 
-# AI Exercise
+## John
 
-Week 1 Rule
+Add:
 
-AI may explain.
-
-AI may not build the website.
-
-Suggested prompts:
-
-"What does Git do?"
-
-"What is GitHub Pages?"
-
-"What is the difference between Git and GitHub?"
-
-Students should compare AI explanations with what was taught.
+- Home
+- Story
+- Gameplay
+- AI Pathfinding
+- Contact
 
 ---
 
-# Stretch Challenge
+# Mini Challenge
 
-Builders who finish early may:
+Every website should contain:
 
-- Add another image.
-- Add another section.
-- Add another feature list.
-- Improve their About page.
-- Improve the Footer.
+- Header
+- Navigation
+- Five Sections
+- Footer
 
-Do NOT introduce CSS yet.
+Bonus
 
-Keep today's focus on HTML.
+Add a "Back to Top" link.
+
+---
+
+# One-to-One Sessions
+
+Check each Builder's website.
+
+Ask questions like:
+
+- Why did you use this section?
+- Why does this navigation work?
+- What does the ID do?
+- Explain every line you wrote.
+
+Encourage students to solve problems themselves.
+
+Guide them with questions rather than writing code.
+
+---
+
+# Afternoon Build Session
+
+Students continue improving their websites independently.
+
+Possible improvements:
+
+- More images
+- Better headings
+- Extra sections
+- Better text
+- Better navigation
+
+Provide individual support where needed.
+
+---
+
+# Git and GitHub
+
+Explain Git using a simple analogy.
+
+Git is like saving different versions of a game.
+
+If something breaks,
+
+you can return to an earlier version.
+
+Every commit is a checkpoint.
+
+---
+
+# Good Commit Messages
+
+Examples
+
+```
+Added navigation menu
+
+Created About section
+
+Added Contact page
+
+Improved homepage layout
+```
+
+Avoid messages like
+
+```
+Update
+
+Changes
+
+Done
+
+Fix
+```
+
+Explain that commit messages should describe what changed.
+
+---
+
+# Publishing with GitHub Pages
+
+Guide students through:
+
+1. Open Repository
+2. Click Settings
+3. Click Pages
+4. Select Branch
+5. Save
+
+Wait a few moments.
+
+Visit the live website.
+
+Celebrate when it appears online.
+
+Explain that they are now real web developers because their work is accessible on the internet.
+
+---
+
+# AI Reflection
+
+Students may ask AI:
+
+- Explain semantic HTML.
+- What does the `<nav>` tag do?
+- Why do websites use IDs?
+
+Students may **not** ask AI to build the webpage for them.
+
+Remind students:
+
+AI should help you learn,
+
+not replace your thinking.
 
 ---
 
 # Demo Time
 
-Each Builder presents for approximately 3 minutes.
+Each Builder presents:
 
-Presentation Structure
+- Their homepage
+- Their navigation
+- Their favourite section
+- One thing they learned
+- One thing they found difficult
 
-### 1. Introduce yourself
-
-"My name is..."
-
-### 2. Introduce your project
-
-"My project is..."
-
-### 3. Explain your homepage
-
-Walk through each section.
-
-### 4. Show the live website
-
-Open GitHub Pages.
-
-### 5. Explain one challenge
-
-"What was difficult?"
-
-### 6. Explain one success
-
-"What are you most proud of?"
-
-Encourage applause after every presentation.
-
----
-
-# Reflection Questions
-
-Ask:
-
-What did you enjoy building?
-
-What was difficult?
-
-What HTML tag do you understand best?
-
-What would you improve next?
-
-What are you excited to learn next week?
+Encourage positive feedback from other Builders.
 
 ---
 
 # Homework
 
-Share your live website with:
+Share your website with:
 
 - A parent
+- A sibling
 - A friend
-- A teacher
 
 Ask them:
 
-- What did you like?
-- What confused you?
+- What do you like?
 - What should I improve?
+- Was the website easy to use?
 
-Write their feedback down.
-
-Bring it to the next session.
+Write down their feedback.
 
 ---
 
 # Assessment Checklist
 
-Every Builder should have:
+By the end of Session 3, each Builder should have:
 
-✅ Homepage completed
+✅ Navigation bar
 
-✅ Proper HTML structure
+✅ Semantic HTML structure
 
-✅ Images working
+✅ Multiple webpage sections
 
-✅ Links working
+✅ Working anchor navigation
 
-✅ Footer completed
+✅ Footer
 
-✅ Repository updated
+✅ Git commits
 
-✅ Commit created
+✅ Live GitHub Pages website
 
-✅ GitHub Pages enabled
-
-✅ Public website working
-
-✅ Presented project
+✅ Confidence explaining their code
 
 ---
 
 # Instructor Notes
 
-Today's priority is **completion**, not perfection.
-
-Celebrate progress.
-
-Encourage students to explain their thinking.
+This is the final HTML lesson.
 
 Do not rush into CSS.
 
-Use today's confidence as the foundation for Week 2.
+Focus on helping students understand website structure rather than styling.
 
-If time allows, briefly preview CSS by showing a beautifully styled version of one of their pages, but do not begin teaching CSS concepts yet.
+Celebrate every successful GitHub Pages deployment.
+
+Encourage creativity while reinforcing good HTML practices.
+
+Keep reminding students to explain every line of code they write.
 
 ---
 
 # Deliverable
 
-By the end of Session 3, each Builder should have:
+At the end of Session 3, every Builder should have:
 
-✅ A complete HTML homepage
-
-✅ A public GitHub repository
-
-✅ A live GitHub Pages website
-
-✅ Experience presenting their own work
-
-✅ Confidence using basic HTML
-
-Week 1 is complete.
-
-Next week, we transform these pages into professional-looking websites using CSS.
+- A professional multi-section HTML website
+- Working navigation using anchor links
+- A published GitHub Pages website
+- A GitHub repository with meaningful commits
+- A strong HTML foundation ready for CSS in Week 2
