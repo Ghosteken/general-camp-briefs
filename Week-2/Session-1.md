@@ -1,424 +1,612 @@
-# Week 2 – Session 1: Think Like a Designer
+# Kokoodi AI Makers Camp
 
-**Programme:** Kokoodi AI Makers Camp
-**Week:** 2
-**Session:** 4
-**Date:** Monday, 10 August 2026
+## Week 2 — Session 1: CSS Foundations & Design
+
 **Instructor:** Kingsley Onyema
-**Guest:** Leye, Design Lead
-**Theme:** Think Like a Designer
-**Week 2 Deliverable:** Working quiz app with one AI-powered feature
+**Week:** 2
+**Session:** 1 — Monday
+**Duration:** 10:00–15:15 programme window
+**Core Teaching:** CSS fundamentals, visual design, accessibility and AI-assisted CSS
+**JavaScript:** Not introduced
+**Primary Deliverable:** Each Builder significantly improves the visual design of their existing HTML project.
 
 ---
 
 # 1. Session Overview
 
-Week 2 begins the transition from building static HTML structures to thinking about how real users interact with software.
+The students already have the HTML structure for their personal projects from Week 1.
 
-The focus of this session is not to introduce a large amount of new code.
+This session moves from:
 
-Instead, Builders will learn to evaluate their existing Week 1 websites from a user's perspective and improve them.
+**HTML = structure**
 
-The key idea is:
+to:
 
-> A website can work technically and still provide a poor user experience.
+**CSS = presentation and visual design**
 
-Builders will learn basic UI/UX concepts, accessibility principles, visual hierarchy, colour contrast, readable typography, navigation and user-focused design.
+The objective is not to teach every CSS property. The objective is for the students to understand enough CSS to confidently modify their own websites.
 
-They will then critique each other's Week 1 websites and use the feedback to make improvements.
+The students should spend more time building than listening.
 
-This session also marks an important change in the programme's AI progression.
+### Teaching principle
 
-From today, Builders may ask AI to generate code. However, they must understand and explain anything they use.
+> Show → explain → build together → modify → experiment → explain back.
+
+Avoid long lectures.
 
 ---
 
-# 2. Session Objectives
+# 2. Learning Objectives
 
 By the end of the session, each Builder should be able to:
 
-- Explain the difference between UI and UX.
-- Identify the intended user of their project.
-- Explain why user needs should influence design decisions.
-- Identify basic usability problems in a website.
-- Explain visual hierarchy.
-- Understand why colour contrast matters.
-- Explain basic accessibility principles.
-- Use meaningful `alt` text for images.
-- Understand the importance of heading structure.
-- Consider keyboard users.
-- Consider mobile users.
-- Give constructive feedback on another person's project.
-- Apply feedback to their own website.
-- Use AI to assist with coding while maintaining ownership of the code.
+* Explain what CSS is.
+* Explain the relationship between HTML and CSS.
+* Create and link an external CSS file.
+* Understand CSS selectors.
+* Change text and background colors.
+* Change font size and weight.
+* Control spacing using margin and padding.
+* Understand the basic CSS box model.
+* Apply CSS classes to project elements.
+* Make basic accessibility improvements.
+* Use AI to explain or draft simple CSS.
+* Explain the CSS they added to their project.
 
 ---
 
-# 3. Core Teaching Principle
+# 3. Connection to Their Projects
 
-Do not turn this into a long design lecture.
+Do not use a generic example for the entire lesson.
 
-The Builders should spend most of the session looking at websites, discussing what they see, identifying problems and improving their own projects.
+Teach the concept using their actual projects whenever possible.
 
-The guiding question throughout the session is:
+### Joshua — Avatar/Game Project
 
-> "If I were the person using this website, what would make my experience better?"
+Possible CSS focus:
 
----
+* Dark gaming interface
+* Character section
+* Game cards
+* Futuristic typography
+* Accent colors
+* Navigation styling
 
-# 4. Materials and Setup
+### Buyi — Footy Stats
 
-Prepare:
+Possible CSS focus:
 
-- Builders' Week 1 websites
-- GitHub repositories
-- VS Code for Web
-- Browser
-- Teams
-- Screen sharing
-- Slide deck
-- Website critique checklist
-- A few example websites
-- Leye's design session
+* Football statistics cards
+* Player information
+* Match sections
+* Ratings
+* Dark sports dashboard
 
-Before the session:
+### John — 2D Adventure/Game Concept
 
-- Confirm all three Builders can access their repositories.
-- Confirm their Week 1 websites are available.
-- Confirm Leye knows the approximate duration of the guest session.
-- Prepare the critique activity.
-- Have the students' three project ideas available:
-  - Joshua – AvatarVerse
-  - Buyi – Footy Stats
-  - John – The Long Way Home
+Possible CSS focus:
 
----
+* Adventure-style interface
+* Character section
+* Locations
+* Game concept
+* Navigation and content cards
 
-# 5. Session Structure
-
-## 10:00 – Stand-up
-
-Duration: 10 minutes
-
-Each Builder answers:
-
-1. What did I complete?
-2. What am I working on next?
-3. What is blocking me?
-
-Keep this short.
-
-The purpose is to establish the working rhythm rather than turn the stand-up into a teaching session.
+The project should remain theirs.
 
 ---
 
-# 6. Opening Discussion
+# 4. Session Opening
+
+Start by showing their Week 1 websites.
 
 Ask:
 
-> "Last week, we were mostly asking: Does my website work?"
+> "What do you think is missing?"
 
-Then introduce today's question:
+Let them identify things such as:
 
-> "Today we are asking: Is my website good for the person using it?"
+* Colors
+* Better fonts
+* Spacing
+* Layout
+* Visual identity
+* Better navigation
 
-Explain that professional developers do not only write code.
+Then explain:
 
-They think about:
-
-- Users
-- Problems
-- Goals
-- Accessibility
-- Ease of use
-- Visual communication
+> "Last week we taught the browser what our website contains. This week we're going to tell the browser how we want it to look."
 
 ---
 
-# 7. UI – User Interface
+# 5. Explain CSS
+
+## Definition
+
+CSS stands for:
+
+**Cascading Style Sheets**
+
+CSS controls the visual appearance of HTML elements.
+
+HTML:
+
+```html
+<h1>Footy Stats</h1>
+```
+
+CSS:
+
+```css
+h1 {
+    color: green;
+}
+```
 
 Explain:
 
-UI means User Interface.
+HTML says:
 
-It is the part of a product that people interact with.
+> This is a heading.
 
-Examples:
+CSS says:
 
-- Buttons
-- Navigation
-- Text
-- Images
-- Forms
-- Cards
-- Menus
+> Make this heading green.
+
+---
+
+# 6. CSS Syntax
+
+Teach the basic pattern:
+
+```css
+selector {
+    property: value;
+}
+```
+
+Example:
+
+```css
+h1 {
+    color: white;
+}
+```
+
+Explain each part.
+
+### Selector
+
+```css
+h1
+```
+
+The element we want to style.
+
+### Property
+
+```css
+color
+```
+
+The thing we want to change.
+
+### Value
+
+```css
+white
+```
+
+The value we want to use.
+
+---
+
+# 7. Connecting CSS to HTML
+
+Demonstrate an external stylesheet.
+
+HTML:
+
+```html
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+```
+
+CSS:
+
+```css
+body {
+    background-color: black;
+    color: white;
+}
+```
+
+Save and refresh the page.
 
 Ask:
 
-> "What are some interfaces you use every day?"
-
-Possible answers:
-
-- Phone
-- Game controller
-- YouTube
-- WhatsApp
-- Websites
-- ATM
-
-Use familiar examples rather than giving a long definition.
+> "What changed?"
 
 ---
 
-# 8. UX – User Experience
+# 8. Selectors
 
-Explain:
+Introduce three basic selectors.
 
-UX means User Experience.
+## Element selector
 
-It describes how the user experiences the product while using it.
+```css
+p {
+    color: white;
+}
+```
 
-A website may look beautiful but still have poor UX.
+## Class selector
 
-For example:
+```css
+.card {
+    padding: 20px;
+}
+```
 
-A football statistics website may have excellent colours and images, but if users cannot find the player statistics, the experience is poor.
+HTML:
 
-Ask:
+```html
+<div class="card">
+```
 
-> "What would make a website frustrating to use?"
+## ID selector
 
-Possible answers:
+```css
+#hero {
+    background-color: black;
+}
+```
 
-- Confusing navigation
-- Tiny text
-- Slow interactions
-- Missing information
-- Hard-to-find buttons
-- Poor colour choices
+Do not go deeply into specificity today.
 
----
-
-# 9. UI vs UX
-
-Use the following simple distinction:
-
-**UI**
-
-How the product looks and what the user interacts with.
-
-**UX**
-
-How easy, clear and useful the product is to use.
-
-Do not insist that students memorise the definitions.
-
-The important thing is that they understand the difference.
+The students are beginners.
 
 ---
 
-# 10. Identify the User
+# 9. Colors
 
-Bring the discussion back to their projects.
+Demonstrate:
 
-## Joshua – AvatarVerse
+```css
+color: white;
+background-color: black;
+```
 
-Primary user:
+Then introduce hexadecimal colors:
 
-Someone interested in games and character-based adventures.
+```css
+color: #00ff88;
+```
 
-Ask:
-
-- What would this person want to see first?
-- What would make them interested?
-- What information would they need?
-
----
-
-## Buyi – Footy Stats
-
-Primary user:
-
-Someone interested in football matches and statistics.
-
-Ask:
-
-- What information would they want immediately?
-- Would they care more about colours or statistics?
-- How quickly can they find a player?
+Explain that hexadecimal values allow more precise color selection.
 
 ---
 
-## John – The Long Way Home
+# 10. Project Color Identity
 
-Primary user:
-
-Someone interested in adventure games and strategic movement.
-
-Ask:
-
-- What would make them curious?
-- How should the game objective be explained?
-- How can the pathfinding idea be communicated simply?
-
----
-
-# 11. The Five-Second Test
-
-Explain the idea:
-
-Imagine a new visitor opens the homepage.
-
-They only have a few seconds to understand the website.
-
-They should be able to answer:
-
-1. What is this?
-2. Who is it for?
-3. What can I do here?
-
-Ask each Builder to look at their own homepage.
-
-Then ask:
-
-> "Can someone understand your project without you explaining it?"
-
----
-
-# 12. Visual Hierarchy
-
-Introduce the idea that not every element on a page should have equal importance.
-
-A good design guides the user's attention.
-
-Typical hierarchy:
-
-1. Main heading
-2. Important message
-3. Main action
-4. Supporting information
-
-Use their own websites as examples.
-
-Ask:
-
-> "What do you want your visitor to notice first?"
-
----
-
-# 13. Colour
-
-Explain that colour should have a purpose.
-
-Colour can:
-
-- Create identity
-- Separate sections
-- Highlight important information
-- Show actions
-- Create a particular mood
-
-Connect this directly to their projects.
+Ask each Builder to choose a visual identity.
 
 ### Joshua
 
-A futuristic gaming theme.
+Possible direction:
+
+* Black
+* Purple
+* Cyan
+* White
 
 ### Buyi
 
-A football/sports theme.
+Possible direction:
+
+* Black
+* Green
+* White
+* Gold
 
 ### John
 
-An adventure/game theme.
+Possible direction:
 
-Do not spend too much time discussing colour theory.
+* Dark blue
+* Blue
+* Orange
+* White
 
-The goal is to make purposeful design decisions.
+Do not force these colors.
 
----
-
-# 14. Colour Contrast
-
-Explain that text must be readable against its background.
-
-Poor example:
-
-Dark grey text on a black background.
-
-Better example:
-
-Light text on a dark background.
+They are starting points.
 
 Ask:
 
-> "If someone cannot easily read the text, does the design work?"
-
-Introduce contrast as an accessibility and usability issue rather than simply a visual preference.
+> "Why did you choose these colors?"
 
 ---
 
-# 15. Typography
+# 11. Typography
 
-Explain that fonts influence readability and personality.
+Introduce:
 
-Discuss:
+```css
+font-family
+font-size
+font-weight
+line-height
+```
 
-- Font size
-- Font weight
-- Line spacing
-- Heading size
-- Consistency
+Example:
 
-Key principle:
+```css
+h1 {
+    font-size: 48px;
+    font-weight: bold;
+}
 
-> Readability comes first.
+p {
+    line-height: 1.6;
+}
+```
 
-Avoid allowing students to use many different fonts simply because they look interesting.
+Explain that typography affects readability and personality.
 
 ---
 
-# 16. Images
+# 12. Spacing
+
+Introduce:
+
+### Margin
+
+Space outside an element.
+
+### Padding
+
+Space inside an element.
+
+Example:
+
+```css
+.card {
+    padding: 20px;
+    margin: 20px;
+}
+```
+
+Use a visual explanation if possible.
+
+---
+
+# 13. Box Model
+
+Show the basic structure:
+
+```text
+Margin
+  ↓
+Border
+  ↓
+Padding
+  ↓
+Content
+```
+
+Explain that HTML elements behave like boxes.
+
+Do not spend too much time on advanced box-sizing concepts.
+
+---
+
+# 14. Guided Build
+
+Each student should now modify their own project.
+
+Minimum requirements:
+
+* Body background
+* Text color
+* Heading styling
+* Paragraph styling
+* Navigation styling
+* Section spacing
+* At least one styled card/component
+
+---
+
+# 15. Accessibility
+
+Introduce accessibility as part of good design.
 
 Ask:
 
-> "Why is this image on your website?"
-
-Good images should:
-
-- Communicate something
-- Support the content
-- Help users understand the project
-- Create visual interest
-
-Explain that an image should have a reason for being there.
-
----
-
-# 17. Accessibility
-
-Introduce accessibility as:
-
-> Designing websites that can be used by as many people as possible.
+> "What if someone cannot see colors very well?"
 
 Discuss:
 
-- Users with visual difficulties
-- Keyboard users
-- Users on mobile devices
-- Users who need clear navigation
-- Users who need readable content
+* Color contrast
+* Alt text
+* Heading structure
+* Readable font sizes
+* Clear navigation
 
-Make it clear that accessibility is part of good engineering.
-
----
-
-# 18. Accessibility in Their HTML
-
-Review things they already know.
-
-## Images
+Example:
 
 ```html
-<img src="player.jpg" alt="Football player celebrating a goal">
+<img src="player.jpg" alt="Football player">
 ```
+
+Explain that `alt` describes the image.
+
+---
+
+# 16. AI Exercise
+
+Week 2 changes the AI progression.
+
+Students may now ask AI to draft CSS.
+
+Example:
+
+```text
+Create simple CSS for a dark football statistics website.
+
+I need:
+- a dark background
+- white text
+- green accent colors
+- cards for player statistics
+- beginner-friendly CSS
+
+Explain the important parts of the CSS.
+Do not use JavaScript.
+```
+
+Students must:
+
+1. Read the response.
+2. Add the CSS.
+3. Test it.
+4. Ask questions about unfamiliar code.
+5. Change at least one thing themselves.
+6. Explain the change.
+
+---
+
+# 17. Important AI Rule
+
+Do not allow:
+
+> "AI, build my whole website."
+
+Instead teach:
+
+> "AI, help me understand this problem."
+
+and:
+
+> "AI, give me a starting point."
+
+The Builder remains responsible for the code.
+
+---
+
+# 18. Individual Time
+
+During the one-to-one sessions, focus on each student's project.
+
+### Joshua
+
+Help him improve the gaming interface.
+
+### Buyi
+
+Help him structure football statistics visually.
+
+### John
+
+Help him create the visual identity for the adventure/game concept.
+
+Ask each student:
+
+1. What are you trying to build?
+2. What are you stuck on?
+3. What did you try?
+4. What did you learn?
+5. Can you explain the CSS you added?
+
+---
+
+# 19. Core Requirement
+
+Every Builder should finish with:
+
+* External CSS connected.
+* Visible design changes.
+* Personal color palette.
+* Improved typography.
+* Improved spacing.
+* At least one styled component.
+* Basic accessibility improvements.
+
+---
+
+# 20. Stretch Tasks
+
+For students who finish early:
+
+* Add borders.
+* Add rounded corners.
+* Add shadows.
+* Style navigation links.
+* Create a reusable `.card` class.
+* Experiment with hover effects.
+
+Do not make stretch tasks compulsory.
+
+---
+
+# 21. End-of-Day Review
+
+Ask each Builder:
+
+> What did CSS allow you to do that HTML alone could not?
+
+Then:
+
+> Show me one CSS rule you understand.
+
+Finally:
+
+> Show me one thing you changed without AI.
+
+---
+
+# 22. Homework
+
+Choose:
+
+* A color palette.
+* A heading font.
+* A body font.
+
+Write one sentence explaining why the choices fit the project.
+
+---
+
+# 23. Instructor Checklist
+
+Before ending:
+
+* [ ] All students understand CSS basics.
+* [ ] All students have an external stylesheet.
+* [ ] All projects have visible CSS changes.
+* [ ] Students understand selectors.
+* [ ] Students understand margin and padding.
+* [ ] Accessibility was introduced.
+* [ ] AI was used responsibly.
+* [ ] Students can explain their changes.
+* [ ] Each student posts their progress during checkout.
+
+---
+
+# 24. Checkout Question
+
+Each Builder posts:
+
+**Today I changed:**
+...
+
+**The CSS concept I learned:**
+...
+
+**Something I found difficult:**
+...
+
+**Tomorrow/next session I want to improve:**
+...
