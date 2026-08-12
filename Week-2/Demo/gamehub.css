@@ -5,6 +5,7 @@ body {
     margin: 0;
 }
 
+/* Style for the Header Section */
 header{
     height: 60px;
     background-color: #181818;
@@ -35,6 +36,7 @@ header nav a:hover{
     color: #00ff88
 }
 
+/* Style for the Layout and Aside Section */
 .layout{
     display: flex;
     min-height: calc(100vh - 60px);
@@ -48,4 +50,99 @@ aside{
 aside h2{
     font-size: 18px;
     margin-bottom: 25px;
+}
+
+aside a{
+    display: block;
+    color: #dddddd;
+    text-decoration: none;
+
+    padding: 12px;
+    margin-bottom: 5px;
+
+    border-radius: 6px;
+}
+
+aside a:hover{
+    background-color: #303030;
+}
+
+/* Style for the Main Section */
+
+main {
+    flex: 1;
+    padding: 35px;
+}
+
+main > h2 {
+    font-size: 32px;
+    margin-bottom: 0;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+section h3{
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.games{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+article{
+    background-color: #1c1c1c;
+    border-radius: 10px;
+    overflow: hidden;
+    padding-bottom: 15px;
+}
+
+article h4 {
+    font-size: 17px;
+    margin: 15px 15px 5px;
+}
+
+article p {
+    color: #aaaaaa;
+    margin: 0 15px;
+}
+
+.game-image {
+    height: 140px;
+}
+
+.game-one {
+    background: linear-gradient(135deg, #3023ae, #c86dd7);
+}
+
+.game-two {
+    background: linear-gradient(135deg, #11998e, #38ef7d);
+}
+
+.game-three {
+    background: linear-gradient(135deg, #ee0979, #ff6a00);
+}
+
+.game-four {
+    background: linear-gradient(135deg, #396afc, #2948ff);
+}
+
+.game-five {
+    background: linear-gradient(135deg, #f7971e, #ffd200);
+}
+
+.game-six {
+    background: linear-gradient(135deg, #434343, #000000);
+}
+
+.game-seven {
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+}
+
+.game-eight {
+    background: linear-gradient(135deg, #654ea3, #eaafc8);
 }
