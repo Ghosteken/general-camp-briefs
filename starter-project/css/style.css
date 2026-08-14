@@ -1,6 +1,68 @@
-/* Starting point only - the default browser styling.
-   Follow the tasks in README.md to make this your own. */
+*{
+    padding: 0;
+    margin: 0;
+}
 
 body {
     font-family: Arial, sans-serif;
+    background-color: #7E7F9A;
+}
+
+header{
+    background-color: #272838;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    gap: 15px;
+}
+h1{
+    color:#F9F8F8;
+}
+a{
+    text-decoration: none;
+    color: #7E7F9A;
+}
+a:hover{
+    color:#F9F8F8;
+}
+nav{
+    display: flex;
+    width: 50%;
+    justify-content: space-around;
+}
+section{
+    margin: 20px 50px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    display:flex;
+    flex-direction: column;
+    gap: 30px;
+}
+h2{
+    color: #FF5D73;
+    text-decoration:underline;
+    text-decoration-color: #272838;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.fun-section{
+    background-color: #F87575;
+}
+footer{
+    text-align: center;
+    color: white;
+    padding: 10px;
+}
+button{
+    width: 80px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #272838;
+    color:white
+}
+img{
+    width: 50%;
+    height: 300px;
 }
