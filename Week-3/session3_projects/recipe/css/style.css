@@ -1,0 +1,70 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    max-width: 700px;
+    margin: 30px auto;
+    padding: 20px;
+    font-family: Georgia, serif;
+    color: #333;
+    background-color: #fff8f5;
+}
+
+img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+h1 {
+    margin-bottom: 8px;
+    color: #3b2520;
+}
+
+p {
+    line-height: 1.5;
+    color: #666;
+}
+
+h2 {
+    margin-top: 28px;
+    padding: 14px;
+    color: #8d2142;
+    background-color: #fdebf3;
+    border-radius: 8px;
+    font-size: 20px;
+}
+
+ul,
+ol {
+    padding: 20px 35px;
+    line-height: 1.8;
+    background-color: white;
+    border-radius: 8px;
+}
+
+li {
+    margin-bottom: 5px;
+}
+
+/* Preparation time */
+body > ul:nth-of-type(1) {
+    background-color: #fff0f7;
+}
+
+/* Ingredients */
+body > ul:nth-of-type(2) {
+    background-color: #fff8df;
+}
+
+/* Instructions */
+ol {
+    background-color: #eef8ed;
+}
+
+/* Nutrition */
+body > ul:nth-of-type(3) {
+    background-color: #eaf4fb;
+}
