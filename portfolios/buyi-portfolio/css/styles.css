@@ -1,0 +1,115 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.logo {
+  font-family: "Dancing Script", cursive;
+  font-weight: 400;
+  color: #71ca2b;
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+}
+.nav-link {
+  color: white;
+}
+.nav-link:hover {
+  color: #71ca2b;
+}
+.nav-link:active {
+  border-bottom: 2px solid #71ca2b;
+}
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+}
+.btn {
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 8rem;
+}
+.colored-btn {
+  background-color: #71ca2b;
+  border: none;
+}
+.bordered-btn {
+  border: 1px solid #ffffff;
+  background-color: transparent;
+}
+.hero {
+  min-height: 100vh;
+}
+.hero-content {
+  display: flex;
+  gap: 2rem;
+}
+.hero-left {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 50%;
+}
+.hero-right {
+  width: 50%;
+}
+.hero-image {
+  object-fit: cover;
+  width: 100%;
+}
+.colored-text {
+  color: #71ca2b;
+}
+.hero-intro {
+  width: fit-content;
+  padding: 0.75rem 1.25rem;
+  border-radius: 5px;
+  font-size: 2rem;
+  background-color: rgba(114, 203, 44, 0.2);
+}
+.hero-title {
+  font-size: 5rem;
+  color: white;
+}
+.hero-subtitle {
+  font-size: 2rem;
+}
+.subtitle {
+  font-size: 1.5rem;
+  color: #5c555f;
+}
+.language-icons {
+  display: flex;
+  gap: 1rem;
+  padding: 0.5rem 0;
+}
+nav {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+body {
+  background-color: #000000;
+  color: white;
+  padding: 2rem 4rem;
+  font-family: "Roboto", sans-serif;
+}
+section {
+  margin: 2rem 0;
+}
+
+color: #859d41;

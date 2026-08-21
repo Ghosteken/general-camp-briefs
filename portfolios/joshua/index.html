@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Joshua | Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- ==========================================================
+       BATCH 1 - HEADER + NAVIGATION
+       Uncomment this block, then uncomment BATCH 1 in style.css
+       ========================================================== -->
+
+    <header class="site-header">
+      <nav class="nav">
+        <a class="nav__logo" href="#top"
+          >Joshua<span class="nav__dot">.</span></a
+        >
+
+        <button class="nav__toggle" id="navToggle" aria-label="Open menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <ul class="nav__list" id="navList">
+          <li><a class="nav__link" href="#about">About</a></li>
+          <li><a class="nav__link" href="#projects">Projects</a></li>
+          <li><a class="nav__link" href="#skills">Skills</a></li>
+          <li><a class="nav__link" href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- ==========================================================
+       BATCH 2 - HERO (the first thing people see)
+       ========================================================== -->
+
+    <section class="hero" id="top">
+      <div class="container hero__inner">
+        <p class="hero__greeting">Hi, my name is</p>
+        <h1 class="hero__name">Joshua</h1>
+        <h2 class="hero__tagline" id="heroTagline">
+          I build things for the web.
+        </h2>
+        <p class="hero__text">
+          I am a Builder at Kokoodi Academy learning HTML, CSS and JavaScript.
+          This page is where I keep everything I have made so far.
+        </p>
+
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="#projects">See my work</a>
+          <a class="btn btn--ghost" href="#contact">Get in touch</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+       BATCH 3 - ABOUT ME
+       ========================================================== -->
+
+    <section class="section" id="about">
+      <div class="container">
+        <h2 class="section__title">About me</h2>
+        <p class="section__subtitle">A little bit about who I am.</p>
+
+        <div class="about">
+          <div class="about__avatar" aria-hidden="true">J</div>
+
+          <div class="about__text">
+            <p>
+              My name is Joshua. I am learning how to build websites at Kokoodi
+              Academy. I started with HTML, then CSS for styling, and now I am
+              writing JavaScript to make my pages interactive.
+            </p>
+            <p>
+              When I am not coding, I like football, music and playing games. My
+              goal is to build a full website of my own from start to finish.
+            </p>
+
+            <ul class="about__facts">
+              <li><strong>Learning:</strong> HTML, CSS, JavaScript</li>
+              <li><strong>Camp:</strong> Kokoodi Academy General Camp</li>
+              <li><strong>Working on:</strong> this portfolio</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+       BATCH 4 - PROJECTS (the main part - links to my work)
+       Copy one "project-card" and change the details for each
+       new project you finish.
+       ========================================================== -->
+    <!--
+  <section class="section section--alt" id="projects">
+    <div class="container">
+      <h2 class="section__title">My projects</h2>
+      <p class="section__subtitle">Things I have built. Click a card to open it.</p>
+
+      <div class="filters" id="projectFilters">
+        <button class="filter is-active" data-filter="all">All</button>
+        <button class="filter" data-filter="html">HTML</button>
+        <button class="filter" data-filter="css">CSS</button>
+        <button class="filter" data-filter="javascript">JavaScript</button>
+      </div>
+
+      <div class="projects" id="projectList">
+
+        <article class="project-card" data-tags="html css">
+          <div class="project-card__thumb">🍔</div>
+          <h3 class="project-card__title">Recipe Page</h3>
+          <p class="project-card__text">
+            A page about my favourite food, built with headings, images and lists.
+          </p>
+          <ul class="project-card__tags">
+            <li>HTML</li>
+            <li>CSS</li>
+          </ul>
+          <div class="project-card__links">
+            <a class="link" href="#" target="_blank" rel="noopener">Live site</a>
+            <a class="link" href="#" target="_blank" rel="noopener">Code</a>
+          </div>
+        </article>
+
+        <article class="project-card" data-tags="css">
+          <div class="project-card__thumb">🎨</div>
+          <h3 class="project-card__title">CSS Layout Practice</h3>
+          <p class="project-card__text">
+            A landing page where I practised flexbox, colours and spacing.
+          </p>
+          <ul class="project-card__tags">
+            <li>HTML</li>
+            <li>CSS</li>
+          </ul>
+          <div class="project-card__links">
+            <a class="link" href="#" target="_blank" rel="noopener">Live site</a>
+            <a class="link" href="#" target="_blank" rel="noopener">Code</a>
+          </div>
+        </article>
+
+        <article class="project-card" data-tags="javascript">
+          <div class="project-card__thumb">🔢</div>
+          <h3 class="project-card__title">Number Guessing Game</h3>
+          <p class="project-card__text">
+            A small game that uses variables, conditions and events in JavaScript.
+          </p>
+          <ul class="project-card__tags">
+            <li>JavaScript</li>
+          </ul>
+          <div class="project-card__links">
+            <a class="link" href="#" target="_blank" rel="noopener">Live site</a>
+            <a class="link" href="#" target="_blank" rel="noopener">Code</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+  -->
+
+    <!-- ==========================================================
+       BATCH 5 - SKILLS
+       ========================================================== -->
+    <!--
+  <section class="section" id="skills">
+    <div class="container">
+      <h2 class="section__title">My skills</h2>
+      <p class="section__subtitle">What I can do, and what I am still learning.</p>
+
+      <ul class="skills">
+        <li class="skill">
+          <span class="skill__icon">📄</span>
+          <h3 class="skill__name">HTML</h3>
+          <p class="skill__text">Structure, headings, images, links, lists and forms.</p>
+        </li>
+        <li class="skill">
+          <span class="skill__icon">🎨</span>
+          <h3 class="skill__name">CSS</h3>
+          <p class="skill__text">Colours, spacing, flexbox, grid and responsive design.</p>
+        </li>
+        <li class="skill">
+          <span class="skill__icon">⚡</span>
+          <h3 class="skill__name">JavaScript</h3>
+          <p class="skill__text">Variables, functions, events and changing the page.</p>
+        </li>
+        <li class="skill">
+          <span class="skill__icon">🐙</span>
+          <h3 class="skill__name">Git &amp; GitHub</h3>
+          <p class="skill__text">Saving my work with commits and pushing to GitHub.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+  -->
+
+    <!-- ==========================================================
+       BATCH 6 - CONTACT + FOOTER
+       ========================================================== -->
+    <!--
+  <section class="section section--alt" id="contact">
+    <div class="container contact">
+      <h2 class="section__title">Get in touch</h2>
+      <p class="section__subtitle">
+        Send me a message if you want to work together or see more of my work.
+      </p>
+      <a class="btn btn--primary" href="mailto:joshua@example.com">Email me</a>
+
+      <ul class="socials">
+        <li><a class="link" href="#" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a class="link" href="#" target="_blank" rel="noopener">Instagram</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>Built by Joshua at Kokoodi Academy.</p>
+      <p id="footerYear"></p>
+    </div>
+  </footer>
+
+  <button class="to-top" id="toTop" aria-label="Back to top">↑</button>
+  -->
+
+    <script src="script.js"></script>
+  </body>
+</html>

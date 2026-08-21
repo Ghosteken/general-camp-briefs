@@ -1,0 +1,459 @@
+/* ==========================================================
+   Joshua's Portfolio - style.css
+   Uncomment one BATCH at a time, in the same order as index.html.
+   Keep this file tidy: one section of styles per batch.
+   ========================================================== */
+
+/* ----------------------------------------------------------
+   BATCH 0 - SETUP (already on: variables, reset, base, layout)
+   ---------------------------------------------------------- */
+
+:root {
+  --colour-bg: #0f172a;
+  --colour-bg-alt: #16213c;
+  --colour-card: #1c2745;
+  --colour-text: #e6ecf7;
+  --colour-muted: #9aa8c4;
+  --colour-accent: #4ade80;
+  --colour-accent-dark: #22c55e;
+  --radius: 14px;
+  --space: 20px;
+  --max-width: 1000px;
+  --font-body: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--colour-bg);
+  color: var(--colour-text);
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: var(--colour-accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space);
+}
+
+.section {
+  padding: 80px 0;
+}
+
+.section--alt {
+  background-color: var(--colour-bg-alt);
+}
+
+.section__title {
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.section__subtitle {
+  color: var(--colour-muted);
+  margin-bottom: 40px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: var(--radius);
+  font-weight: 600;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+.btn--primary {
+  background-color: var(--colour-accent);
+  color: #0b1220;
+}
+
+.btn--primary:hover {
+  background-color: var(--colour-accent-dark);
+}
+
+.btn--ghost {
+  border: 2px solid var(--colour-accent);
+  color: var(--colour-accent);
+}
+
+.link {
+  font-weight: 600;
+}
+
+/* ----------------------------------------------------------
+   BATCH 1 - HEADER + NAVIGATION
+   ---------------------------------------------------------- */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: rgba(15, 23, 42, 0.9);
+  border-bottom: 1px solid #24304f;
+}
+
+.nav {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 16px var(--space);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav__logo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--colour-text);
+}
+
+.nav__dot {
+  color: var(--colour-accent);
+}
+
+.nav__list {
+  display: flex;
+  gap: 28px;
+}
+
+.nav__link {
+  color: var(--colour-muted);
+  font-weight: 500;
+}
+
+.nav__link:hover {
+  color: var(--colour-accent);
+  text-decoration: none;
+}
+
+.nav__toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+.nav__toggle span {
+  width: 26px;
+  height: 3px;
+  border-radius: 3px;
+  background-color: var(--colour-text);
+}
+
+/* ----------------------------------------------------------
+   BATCH 2 - HERO
+   ---------------------------------------------------------- */
+
+.hero {
+  padding: 120px 0 100px;
+}
+
+.hero__greeting {
+  color: var(--colour-accent);
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.hero__name {
+  font-size: 3.5rem;
+  line-height: 1.1;
+  margin: 8px 0;
+}
+
+.hero__tagline {
+  font-size: 1.75rem;
+  color: var(--colour-muted);
+  margin-bottom: 20px;
+}
+
+.hero__text {
+  max-width: 520px;
+  color: var(--colour-muted);
+  margin-bottom: 32px;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+/* ----------------------------------------------------------
+   BATCH 3 - ABOUT ME
+   ---------------------------------------------------------- */
+
+.about {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.about__avatar {
+  flex-shrink: 0;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background-color: var(--colour-accent);
+  color: #0b1220;
+  font-size: 4rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about__text p {
+  color: var(--colour-muted);
+  margin-bottom: 16px;
+}
+
+.about__facts li {
+  padding: 6px 0;
+  border-bottom: 1px solid #24304f;
+}
+
+.about__facts strong {
+  color: var(--colour-text);
+}
+
+@media (max-width: 700px) {
+  .about {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+/* ----------------------------------------------------------
+   BATCH 4 - PROJECTS
+   ---------------------------------------------------------- */
+
+/*
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.filter {
+  padding: 8px 18px;
+  border: 1px solid #2f3d63;
+  border-radius: 999px;
+  background: none;
+  color: var(--colour-muted);
+  font: inherit;
+  cursor: pointer;
+}
+
+.filter:hover,
+.filter.is-active {
+  border-color: var(--colour-accent);
+  color: var(--colour-accent);
+}
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.project-card {
+  background-color: var(--colour-card);
+  border: 1px solid #2a3556;
+  border-radius: var(--radius);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
+}
+
+.project-card__thumb {
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+}
+
+.project-card__title {
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+}
+
+.project-card__text {
+  color: var(--colour-muted);
+  margin-bottom: 16px;
+}
+
+.project-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.project-card__tags li {
+  padding: 4px 10px;
+  border-radius: 999px;
+  background-color: #24304f;
+  color: var(--colour-muted);
+  font-size: 0.8rem;
+}
+
+.project-card__links {
+  margin-top: auto;
+  display: flex;
+  gap: 20px;
+}
+
+.project-card.is-hidden {
+  display: none;
+}
+*/
+
+/* ----------------------------------------------------------
+   BATCH 5 - SKILLS
+   ---------------------------------------------------------- */
+
+/*
+.skills {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 24px;
+}
+
+.skill {
+  background-color: var(--colour-card);
+  border-radius: var(--radius);
+  padding: 24px;
+  text-align: center;
+}
+
+.skill__icon {
+  font-size: 2rem;
+}
+
+.skill__name {
+  margin: 10px 0 6px;
+}
+
+.skill__text {
+  color: var(--colour-muted);
+  font-size: 0.95rem;
+}
+*/
+
+/* ----------------------------------------------------------
+   BATCH 6 - CONTACT + FOOTER + BACK TO TOP
+   ---------------------------------------------------------- */
+
+/*
+.contact {
+  text-align: center;
+}
+
+.contact .section__subtitle {
+  max-width: 480px;
+  margin: 0 auto 32px;
+}
+
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.footer {
+  padding: 32px 0;
+  border-top: 1px solid #24304f;
+}
+
+.footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: space-between;
+  color: var(--colour-muted);
+  font-size: 0.9rem;
+}
+
+.to-top {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 46px;
+  height: 46px;
+  border: 0;
+  border-radius: 50%;
+  background-color: var(--colour-accent);
+  color: #0b1220;
+  font-size: 1.25rem;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.to-top.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+*/
+
+/* ----------------------------------------------------------
+   BATCH 7 - ANIMATION HELPER (needed by the scroll reveal JS)
+   ---------------------------------------------------------- */
+
+/*
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+ */
