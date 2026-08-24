@@ -3,6 +3,7 @@
 * {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
 
 .logo {
@@ -15,6 +16,9 @@
   align-items: center;
   justify-content: space-between;
   position: sticky;
+  top: 0;
+  padding: 1rem 4rem;
+  background-color: rgba(0, 0, 0, 0.8);
 }
 .nav-link {
   color: white;
@@ -22,9 +26,11 @@
 .nav-link:hover {
   color: #71ca2b;
 }
-.nav-link:active {
+/* add js to add active class to nav-link when scrolling to section */
+/* .nav-link.active {
+  color: #71ca2b;
   border-bottom: 2px solid #71ca2b;
-}
+} */
 .hero-buttons {
   display: flex;
   gap: 1rem;
@@ -36,7 +42,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 8rem;
+  width: 10rem;
 }
 .colored-btn {
   background-color: #71ca2b;
@@ -46,24 +52,20 @@
   border: 1px solid #ffffff;
   background-color: transparent;
 }
-.hero {
-  min-height: 100vh;
-}
-.hero-content {
+.flex-container {
   display: flex;
   gap: 2rem;
 }
-.hero-left {
+.centered-flex-container {
   display: flex;
   justify-content: center;
   flex-direction: column;
   gap: 1.5rem;
+}
+.half-width {
   width: 50%;
 }
-.hero-right {
-  width: 50%;
-}
-.hero-image {
+.full-image {
   object-fit: cover;
   width: 100%;
 }
@@ -81,10 +83,10 @@
   font-size: 5rem;
   color: white;
 }
-.hero-subtitle {
+.subtitle {
   font-size: 2rem;
 }
-.subtitle {
+.note {
   font-size: 1.5rem;
   color: #5c555f;
 }
@@ -92,6 +94,46 @@
   display: flex;
   gap: 1rem;
   padding: 0.5rem 0;
+}
+.even-section {
+  background-color: #071207;
+}
+.about-image {
+  width: 100px;
+}
+.projects{
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.project-card{
+  width: 300px;
+  background-color: rgba(114, 203, 44, 0.2);
+  border-radius: 0.5rem;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+.project-card img{
+  width: 100%;
+  object-fit: cover;
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+.project-card-content{
+  padding: 1rem;
+   display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.project-link{
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  justify-content: flex-end;
+}
+.projects-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  width: 100%;
 }
 nav {
   list-style: none;
@@ -105,11 +147,16 @@ a {
 body {
   background-color: #000000;
   color: white;
-  padding: 2rem 4rem;
   font-family: "Roboto", sans-serif;
 }
 section {
-  margin: 2rem 0;
+  padding: 1rem 4rem;
+  min-height: 80vh;
+}
+footer{
+  padding: 1rem 4rem;
+  display: flex;
+  justify-content: space-between;
 }
 
 color: #859d41;
