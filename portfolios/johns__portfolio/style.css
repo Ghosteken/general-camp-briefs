@@ -1,0 +1,244 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+:root{
+--primary_color: #420D09;
+--secondary_color: #216869;
+--light_color: #efefef;
+--dark_color: #000000;
+--font_header: "Playfair Display", serif;
+--font_paragraph: "Inter", sans-serif;
+}
+
+body{
+    font-family: var(--font_paragraph);
+    color: var(--dark_color);
+    background-color: var(--light_color);
+}
+
+h1, h2, h3, h4, h5, h6{
+   
+    font-family: var(--font_header);
+}
+
+p{
+    font-family: var(--font_paragraph);
+}
+
+a{
+    text-decoration: none;
+}
+
+
+li{
+    list-style: none;
+}
+
+button{
+    font-family: inherit;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    background-color: #420D09;
+    padding: 1rem;
+}
+
+.primary_nav{
+width: 15rem;
+border-radius: 100px;
+border: solid 2px transparent;
+background: 
+    linear-gradient(to right, var(--primary_color) 70%, transparent) padding-box, 
+    linear-gradient(to right, transparent , var(--light_color)) border-box;
+align-content: center;
+}
+
+.nav-items{
+    padding: 0.6rem;
+    display: flex;
+    justify-content: space-between;
+    color: var(--light_color);
+}
+.nav-item a{
+    color: var(--light_color);
+}
+
+.btn{
+    color: var(--light_color);
+    padding: 0.5rem 1rem;
+ align-content: center;
+   
+}
+
+.btn-outline{
+    border: solid 2px var(--light_color); 
+    border-radius: 100px;
+
+}
+
+.hero{
+ display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    background-color: var(--primary_color);
+    color: var(--light_color);
+    padding: 0rem 2rem;
+}
+
+.hero_content, 
+.hero_intro{
+    flex: 1 1 240px;
+    align-content: center;
+}
+
+.hero_content h1{
+      font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--light_color);
+}
+.hero_intro h2{
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: var(--light_color);
+}
+.hero_content p,
+.hero_intro p{
+    line-height: 1.7;
+    opacity: 0.85;
+}
+.hero_cta{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.btn-primary{
+    background-color: var(--secondary_color);
+    border-radius: 100px;
+    
+}
+.hero_image{
+    flex: 0 1 240px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.hero_image::before{
+    content: "";
+    position: absolute;
+     width: 500px;
+    max-width: 80%;
+     aspect-ratio: 1;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--secondary_color) 0%, transparent 70%);
+    opacity: 0.8;
+}
+
+.hero_image img{
+    position: relative;
+}
+
+.projects{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 3rem 2rem;
+    background-color: var(--light_color);
+
+}
+
+.projects > h2{
+    color: var(--secondary_color);
+    font-weight: 800;
+    
+
+}
+.projects > p{
+    max-width: 640px;
+    margin: 0 auto;
+    line-height: 1.7;
+    opacity: 0.8;
+}
+
+.project_container{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+    font-size: 12px;
+ 
+}
+.project_cards{
+    flex: 1 1 360p;
+    text-align: left;
+    max-width: 300px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    margin-bottom: 1rem;
+    padding: 1.5rem;
+    border-radius: 20px;
+    background-color: #ffffff;
+    
+}
+.project_cards > h3{
+color: var(--secondary_color);
+font-weight: 700;
+}
+.project_cards > p{
+    line-height: 1.7;
+    opacity: 0.8;
+}
+.project_cards > ul{
+    display: flex;
+    text-align: center;
+    padding: 1rem;
+color: var(--light_color);
+justify-content: right;
+gap: 0.5rem;
+}
+.project_cards li{
+      padding: 0.5rem;
+      border-radius: 100px;
+background-color: var(--secondary_color);
+width: 64px;
+font-size: 12px;
+}
+
+.sidebar{
+    position: fixed;
+  top: 0;
+  right: 0;
+  width: 260px;
+  height: 100vh;
+  background-color: var(--light_color);
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+.sidebar.open{
+    transform: translateX(0);
+}
+.burger{
+    display: none;
+}
+
+@media (max-width:600px){
+.burger{
+display: block;
+}
+nav{
+    display: none;
+}
+}

@@ -3,67 +3,92 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<link rel="icon" href="./assets/Beige And Black Minimalistic Trick Or Treat Halloween House Poster.svg" >
 <meta name="viewport" content="width=device-width, initial-scale-1.0"/>
 <title>John's Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="practice.css"/>
+<script src="./index.js" defer></script>
 </head>
 <body>
 <header>
-    <a href="#hero" width="" height="">
-logo
+    <a href="">
+        <img class="logo" src="./assets/logo-mark.svg" width="48" height="48" alt="Site logo"/>
     </a>
-    <nav>
-<ul>
-    <li><a href="#">About</a></li>
-    <li><a>Projects</a></li>
-    <li><a>Contact</a></li>
+    <nav class="primary_nav">
+<ul class="nav-items">
+    <li class="nav-item"><a href="#">About</a></li>
+    <li class="nav-item"><a>Projects</a></li>
+    <li class="nav-item"><a>Contact</a></li>
 </ul>
     </nav>
-    <a>
+    <a href="#" class="btn btn-outline">
         View on Github
     </a>
+   <button id="burger" class="burger" aria-label="Toggle menu">
+       <img src="./assets/burger-svgrepo-com.svg" alt="burger" height="20" width="20"/>
+   </button>
+    <aside class="sidebar" id="sidebar">
+            <a href="" id="sidebarClose" aria-label="Close menu">
+        <img class="logo" src="./assets/logo-mark.svg" width="48" height="48" alt="Site logo"/>
+    </a>
+    <nav class="primary_nav">
+<ul class="nav-items">
+    <li class="nav-item"><a href="#">About</a></li>
+    <li class="nav-item"><a>Projects</a></li>
+    <li class="nav-item"><a>Contact</a></li>
+</ul>
+    </nav>
+    <a href="#" class="btn btn-outline">
+        View on Github
+    </a>
+    </aside>
 </header>
-<main class="hero" id="hero"><section>
+<main class="hero" id="hero">
+<section class="hero_content">
 <h1>
-    My name is First Name Last Name
+    My name is Ella
 </h1>
 <p>
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam fugit,
-    accusamus laborum amet adipisci vero nemo hic vitae quidem corporis! Cumque libero, 
-    tempora tenetur aperiam laudantium exercitationem ipsam eum excepturi!
+    accusamus laborum amet adipisci vero nemo hic vitae quidem corporis! 
 </p>
-<section>
-    <a>Github</a>
-    <a>
+<section class="hero_cta">
+    <a href="#" class="btn btn-primary">Github</a>
+    <a href="#" class="btn btn-outline">
         My Resume
     </a>
 </section>
 </section>
-<section>
-    <img src="" alt="" width="" height=""/>
+<section class="hero_image">
+    <img src="./assets/MILES.png" alt="Illustrated portfolio character" width="500" height="600"/>
 </section>
-<section>
+<section class="hero_intro">
     <h2>
-      Welcome to my Portfolio  
+      Welcome to my Portfolio
     </h2>
     <p>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit.
         Itaque ipsa rerum sit pariatur. Iste doloremque repellendus itaque aspernatur
-         aliquid vitae eius! Voluptatum officiis ipsa maxime! Praesentium sit officia 
-         obcaecati eos!
     </p>
 </section>
 </main>
 <section class="projects" id="Projects">
-    <h1>My Projects</h1>
+    <h2>My Projects</h2>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
          Iste, excepturi? Molestias placeat recusandae eum nisi vitae
           reprehenderit ea quasi laboriosam, explicabo, aspernatur commodi 
-          aperiam error quae natus, dicta illum? Optio?</p>
+          aperiam error quae natus, dicta illum? Optio?
+        </p>
+          <div class="carousel">
+          <button id="carouselPrev" class="carousel-btn" aria-label="Previous project">&#10094;</button>
           <section class="project_container">
            <Article class="project_cards">
            
             <img src=" " alt="" width="" height=""/>
-             <h2>A Calculator</h2>
+             <h3>A Calculator</h3>
              <p>
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, iure unde. Ipsa minima voluptatibus dolorum fugit a magni, perferendis voluptate non dolore ab, libero incidunt. Eveniet ea et labore sint.
              </p>
@@ -76,7 +101,7 @@ logo
            <Article class="project_cards">
          
             <img src=" " alt="" width="" height=""/>
-             <h2>A Calculator</h2>
+             <h3>A Calculator</h3>
              <p>
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, iure unde. Ipsa minima voluptatibus dolorum fugit a magni, perferendis voluptate non dolore ab, libero incidunt. Eveniet ea et labore sint.
              </p>
@@ -89,7 +114,7 @@ logo
            <Article class="project_cards">
           
             <img src=" " alt="" width="" height=""/>
-             <h2>A Calculator</h2>
+             <h3>A Calculator</h3>
              <p>
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, iure unde. Ipsa minima voluptatibus dolorum fugit a magni, perferendis voluptate non dolore ab, libero incidunt. Eveniet ea et labore sint.
              </p>
@@ -100,6 +125,8 @@ logo
             </ul>
            </Article>
           </section>
+          <button id="carouselNext" class="carousel-btn" aria-label="Next project">&#10095;</button>
+          </div>
 </section>
 <section  class="About">
     <section class="about_img">
@@ -121,10 +148,11 @@ Email
 <input name="email" id="email" type="email" placeholder="email@example.com">
 <label for="message">Message</label>
 <textarea name="message" id="message"></textarea>
+<button type="submit" class="btn btn-primary">Send Message</button>
     </form>
 </section>
 <footer>
-    &copy; John's Portfolio 2026
+    &copy; John's Portfolio 2026.
 </footer>
 </body>
 </html>
